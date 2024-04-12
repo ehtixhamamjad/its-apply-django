@@ -497,6 +497,30 @@
           "icon": "menu-icon tf-icons ti ti-help",
           "slug": "pages-faq"
         },
+         {
+          "url": "pages-applicaton",
+          "name": "Application",
+          "icon": "menu-icon tf-icons ti ti-help",
+          "slug": "pages-applicaton"
+        },
+        {
+          "url": "pages-how-to-apply",
+          "name": "How to apply",
+          "icon": "menu-icon tf-icons ti ti-help",
+          "slug": "pages-how-to-apply"
+        },
+        {
+          "url": "pages-active-projects",
+          "name": "Active projects",
+          "icon": "menu-icon tf-icons ti ti-help",
+          "slug": "pages-active-projects"
+        },
+        {
+          "url": "pages-download-slip",
+          "name": "Download Slip",
+          "icon": "menu-icon tf-icons ti ti-help",
+          "slug": "pages-download-slip"
+        },
         {
           "url": "pages-pricing",
           "name": "Pricing",

@@ -319,7 +319,12 @@
     {
       "name": "How to Apply",
       "icon": "ti-diamond",
-      "url": "/pages/how-to-apply/"
+      "url": "pages/pages_how_to_apply/"
+    },
+    {
+      "name": "Applications",
+      "icon": "ti-diamond",
+      "url": "pages/application/"
     },
     {
       "name": "Error",

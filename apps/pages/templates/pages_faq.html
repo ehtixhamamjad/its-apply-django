@@ -3,7 +3,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}FAQ - Pages{% endblock %}
+{% block title %}Profile - Pages{% endblock %}
 
 {% block page_css %}
 {{ block.super }}
@@ -11,121 +11,48 @@
 {% endblock page_css %}
 
 {% block content %}
-{% comment %} <div class="faq-header d-flex flex-column justify-content-center align-items-center rounded">
-  <h3 class="text-center"> How to Apply</h3>
-  <div class="input-wrapper mb-3 input-group input-group-lg input-group-merge">
-    <span class="input-group-text" id="basic-addon1"><i class="ti ti-search"></i></span>
-    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" />
+<div class="card p-2">
+  <div class="d-flex align-items-center justify-content-center">
+    <img class="img-fluid mb-3 img" src="{% static 'img/pages/sampleImage.jpeg' %}" alt="Instructions Image">
   </div>
-  <p class="text-center mb-0 px-3">Instructions to perform various operations on ITS portal</p>
-</div> {% endcomment %}
-<div class="card text-center py-5 text-white" style="background-color:#7367f0;">
-  <h4 class="card-title text-white">How to Apply</h4>
-  <p class="card-text">Instructions to perform various operations on ITS portal</p>
-</div>
-
-<div class="row mt-4">
-  <!-- Navigation -->
-  <div class="col-lg-3 col-md-4 col-12 mb-md-0 mb-3">
-    <div class="d-flex justify-content-between flex-column mb-2 mb-md-0">
-      <ul class="nav nav-align-left nav-pills flex-column">
-        <li class="nav-item">
-          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#loginInstructions">
-            <span class="align-middle fw-medium">Login Instructions</span>
-          </button>
-        </li>
-        <li class="nav-item">
-          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#registrationInstructions">
-            <span class="align-middle fw-medium">Registration Instructions</span>
-          </button>
-        </li>
-        <li class="nav-item">
-          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#forgetPasswordInstructions">
-            <span class="align-middle fw-medium">Forget Password Instructions</span>
-          </button>
-        </li>
-        {% comment %} <li class="nav-item">
-          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#faq">
-            <span class="align-middle fw-medium">FAQ</span>
-          </button>
-        </li> {% endcomment %}
-      </ul>
-    </div>
-  </div>
-  <!-- /Navigation -->
-
-  <!-- Main content -->
-  <div class="col-lg-9 col-md-8 col-12">
-    <div class="tab-content py-0">
-    
-      <!-- Login Instructions -->
-
-      <div class="tab-pane fade show active" id="loginInstructions" role="tabpanel">
-
-        <!-- Content for Login Instructions -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class=" card card-title bg-primary text-white px-2 py-2">Login Instructions</h5>
-            <ul>
-              <li>If you are already registered on ITS Candidate Portal, then click on enter your CNIC Number and 6-digits password to login to your candidate portal.</li>
-              <li>If you are not registered on ITS Candidate Portal, click on 'Create an Account' link below to create a new account.</li>
-              <li>If you are registered on ITS Candidate Portal, but you have forgotten your password, then click on 'Forget Password' link to recover your password.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- Registration Instructions -->
-      <div class="tab-pane fade" id="registrationInstructions" role="tabpanel">
-        <!-- Content for Registration Instructions -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card card-title bg-primary text-white px-2 py-2">Registration Instructions</h5>
-            <ul>
-              <li>Enter your Full Name as per your CNIC.</li>
-              <li>Enter your CNIC number.</li>
-              <li>If your CNIC or mobile number is already registered on the portal then go to login page to login to your account.</li>
-              <li>Enter your email address. This field is optional. If you don't have an email address then leave this field empty.</li>
-              <li>Click on 'Send Verification Code' button to send a verification code / OTP on your entered mobile number.</li>
-              <li>After a few seconds, you will receive a four-digit verification code / OTP.</li>
-              <li>If you don't receive the verification code / OTP, then you can resend the code after 1 minute.</li>
-              <li>After receiving the Verification Code / OTP, enter the code below and click on 'Sign Up' button.</li>
-              <li>After a few seconds, you will receive a 6-digits password on your mobile number through which you can login to your account.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- Forget Password Instructions -->
-      <div class="tab-pane fade" id="forgetPasswordInstructions" role="tabpanel">
-        <!-- Content for Forget Password Instructions -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card card-title bg-primary text-white px-2 py-2">Forget Password Instructions</h5>
-            <ul>
-              <li>Enter your CNIC number.</li>
-              <li>Enter your mobile number.</li>
-              <li>Click on 'SEND VERIFICATION CODE' button.</li>
-              <li>If your given CNIC and mobile number is not linked with any account, the system will show you a message!</li>
-              <li>Enter your email address. This field is optional. If you don't have an email address then leave this field empty.</li>
-              <li>Click on 'Send Verification Code' button to send a verification code / OTP on your entered mobile number.</li>
-              <li>After a few seconds, you will receive a four-digit OTP / Verification Code on your mobile number.</li>
-              <li>Enter the received OTP / Verification Code in the below field and click on 'SEND NEW PASSWORD' button.</li>
-              <li>After a few seconds, you will receive a new password on your mobile number through which you can login to your account.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <!-- FAQ Section -->
-      {% comment %} <div class="tab-pane fade" id="faq" role="tabpanel">
-        <!-- FAQ Accordion -->
-        <div id="accordionFAQ" class="accordion">
-          <!-- FAQ Items -->
-          <!-- Add your FAQ items here using the same structure as above -->
-        </div>
-        <!-- End FAQ Accordion -->
-      </div> {% endcomment %}
-    </div>
-  </div>
-  <!-- /Main content -->
+  <ul style="list-style-type: none; padding: 0;">
+    <li><strong>Instructions for Uploading Files:</strong></li>
+    <li>Attach your recent Passport Size photograph with blue/white background.</li>
+    <li>Selfies are strictly not allowed.</li>
+    <li>Attach the front and back sides of your CNIC separately.</li>
+    <li>Attach your Domicile and PRC (Form-D).</li>
+    <li>Attach all files in .jpg and .png formats. File size must not be greater than 1 MB.</li>
+    <li>Attach clear and colored documents. Blurred and not visible files can cause the rejection of your application.</li>
+  </ul>
+  <hr>
+  <br>
+  <ul style="list-style-type: none; padding: 0;">
+    <li><strong>Instructions for Personal Information Section:</strong></li>
+    <li>Your Full Name, CNIC, Mobile Number and Email Address will be auto-filled from your registration data. You cannot change them.</li>
+    <li>Fill all the remaining fields carefully and enter valid data.</li>
+    <li>All fields are mandatory except Email Address. If you don't have the email address, you can leave the field empty.</li>
+    <li>Select Father / Husband name on the basis of your CNIC.</li>
+    <li>If you are selecting yourself as 'Disabled' then you must have the disabled CNIC issued by NADRA having 'Wheelchair' on it. Otherwise, your disability will not be accepted.</li>
+  </ul>
+  <hr>
+  <br>
+  <ul style="list-style-type: none; padding: 0;">
+    <li><strong>Instructions for Address Information Section:</strong></li>
+    <li>Select the district and taluka of domicile from the list of cities.</li>
+    <li>Fill your Domicile No. and PRC-D No. written on the top of your documents.</li>
+    <li>Enter your Permanent and Current Address written on the back side of your CNIC.</li>
+    <li>Enter your valid Postal Address because your provided address will be used to send you official posts / TCS.</li>
+  </ul>
+  <hr>
+  <br>
+  <ul style="list-style-type: none; padding: 0;">
+    <li><strong>Instructions for Educational Information Section:</strong></li>
+    <li>Add your all educational information of Matriculation, Intermediate and Graduation.</li>
+    <li>Attach transcript / degree with each record.</li>
+    <li>Attach degree / marksheet files with .jpg and .png formats. The file size must not be greater than 1 MB.</li>
+    <li>Do not add your on-going / continued degrees.</li>
+  </ul>
+  <br>
 </div>
 
 

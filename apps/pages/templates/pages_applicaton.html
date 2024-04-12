@@ -1,0 +1,94 @@
+{% extends layout_path %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}Applications - Pages{% endblock %}
+
+
+
+{% block content %}
+{% load static %}
+
+{% load static %}
+
+<div>
+  <div class="card text-center py-4 mb-3 text-white" style="background-color:#7367f0;">
+    <h4 class="card-title text-white">My Applications</h4>
+    <p class="card-text">Download Slip | View Status of Application</p>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="card mt-1 border-primary">
+        <div class="card-header bg-primary text-white p-2">
+          <h5 class="card-title text-white">Application ID: "12345"</h5>
+        </div>
+        <div class="card-body px-2 py-1">
+          <h6 class="card-title mb-1 mt-0">Post Applied: "React Js Developer"</h6>
+          <p class="card-text"><strong>Project: </strong>SUPARCO</p>
+          <p class="card-text"><strong>Applied On: </strong>22-07-2023</p>
+          <p class="card-text bg-primary text-white text-center" style="max-width: 300px; border-radius: 5px; padding: 2px;"><strong>Application Status: Form Submitted</strong></p>
+          <p class="card-text bg-danger text-white text-center" style="max-width: 250px; border-radius: 5px; padding: 2px;"><strong>Next Step: Download Slip</strong></p>
+        </div>
+        <hr>
+        <div class="px-2 py-1 m-auto">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#confirmationModal">Download Slip</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-fullscreen" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="print-content" class="p-2" style="border: 5px solid #F30002;">
+          <div class="d-flex align-items-center justify-content-center flex-column mb-1">
+            <img src="{% static 'img/pages/logo.png' %}" style="width: 200px; height: 70px;" class="mx-auto" alt="CTS Logo">
+            <h4 class="mt-2">Exam Name</h4>
+          </div>
+          <div class="d-flex justify-content-between p-1 bc" style="border: 5px solid #0041FD; background-color: #EFF3FF;">
+            <div class="student-info">
+              <p><strong class="text-primary">Roll No: </strong><span class="fw-bold">9785653</span></p>
+              <p><strong class="text-primary">Name: </strong><span class="fw-bold">Ahemd Ali</span></p>
+              <p><strong class="text-primary">Father Name: </strong><span class="fw-bold">Muhammad Ali</span></p>
+              <p><strong class="text-primary">CNIC: </strong><span class="fw-bold">61101-8157206-4</span></p>
+              <p><strong class="text-primary">Exam: </strong><span class="fw-bold">Initial Assessment</span></p>
+              <p><strong class="text-primary">Test Date: </strong><span class="fw-bold">22-08-2023</span></p>
+              <p><strong class="text-primary">Test Time: </strong>12:30 PM</p>
+              <p><strong class="text-primary">Test Center: </strong><span class="fw-bold">Saddar Rawalpindi</span></p>
+            </div>
+            <img src="{% static 'img/pages/placeholder-image.jpg' %}" style="width: 200px; height: 200px;" alt="Placeholder Image">
+          </div>
+          <div class="p-1">
+            <p class="m-0 p-0"><strong>Instructions:</strong></p>
+            <p>Candidates are provisionally allowed to appear in the test, subject to verification of credentials and eligibility criteria.</p>
+            <p class="m-0 p-0"><strong>Additional Instructions:</strong></p>
+            <ul>
+              <li>You are advised to bring this ROLL NO SLIP along with your original National ID Card or Passport and Matric certificate containing your photograph. Candidates failing to produce ROLL NO SLIP OR CNIC would not be allowed to enter the examination hall.</li>
+              <li>Mobile phones, calculators, or any other electronic devices are not allowed in the Test Center Premises.</li>
+              <li>Mobile collection facility will not be provided at the test center.</li>
+              <li>No candidate will be allowed to enter the exam hall after 30 minutes of the start of the test.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="window.print()">Print Slip</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+
+
+{% endblock %}

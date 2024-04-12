@@ -3,79 +3,131 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}How to Apply - Pages{% endblock %}
+{% block title %}FAQ - Pages{% endblock %}
+
+{% block page_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'vendor/css/pages/page-faq.css' %}" />
+{% endblock page_css %}
 
 {% block content %}
-<div>
-    <!-- Card for header -->
-    <div class="card text-center p-2 text-white" style="background-color:#7367f0;">
-      <h4 class="card-title text-white">How to Apply</h4>
-      <p class="card-text">Instructions to perform various operations on ITS portal</p>
+{% comment %} <div class="faq-header d-flex flex-column justify-content-center align-items-center rounded">
+  <h3 class="text-center"> How to Apply</h3>
+  <div class="input-wrapper mb-3 input-group input-group-lg input-group-merge">
+    <span class="input-group-text" id="basic-addon1"><i class="ti ti-search"></i></span>
+    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" />
+  </div>
+  <p class="text-center mb-0 px-3">Instructions to perform various operations on ITS portal</p>
+</div> {% endcomment %}
+<div class="card text-center py-5 text-white" style="background-color:#7367f0;">
+  <h4 class="card-title text-white">How to Apply</h4>
+  <p class="card-text">Instructions to perform various operations on ITS portal</p>
+</div>
+
+<div class="row mt-4">
+  <!-- Navigation -->
+  <div class="col-lg-3 col-md-4 col-12 mb-md-0 mb-3">
+    <div class="d-flex justify-content-between flex-column mb-2 mb-md-0">
+      <ul class="nav nav-align-left nav-pills flex-column">
+        <li class="nav-item">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#loginInstructions">
+            <span class="align-middle fw-medium">Login Instructions</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#registrationInstructions">
+            <span class="align-middle fw-medium">Registration Instructions</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#forgetPasswordInstructions">
+            <span class="align-middle fw-medium">Forget Password Instructions</span>
+          </button>
+        </li>
+        {% comment %} <li class="nav-item">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#faq">
+            <span class="align-middle fw-medium">FAQ</span>
+          </button>
+        </li> {% endcomment %}
+      </ul>
     </div>
-  
-    <!-- Main content card -->
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <!-- List group column -->
-          <div class="col-md-4 col-sm-12 mt-1">
-            <!-- List group for instruction options -->
-            <ul class="list-group">
-              <li class="list-group-item cursor-pointer {% if activeList == '1' %}active{% endif %}" onclick="toggleList('1')">Login Instructions</li>
-              <li class="list-group-item cursor-pointer {% if activeList == '2' %}active{% endif %}" onclick="toggleList('2')">Registration Instructions</li>
-              <li class="list-group-item cursor-pointer {% if activeList == '3' %}active{% endif %}" onclick="toggleList('3')">Forget Password Instructions</li>
+  </div>
+  <!-- /Navigation -->
+
+  <!-- Main content -->
+  <div class="col-lg-9 col-md-8 col-12">
+    <div class="tab-content py-0">
+    
+      <!-- Login Instructions -->
+
+      <div class="tab-pane fade show active" id="loginInstructions" role="tabpanel">
+
+        <!-- Content for Login Instructions -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class=" card card-title bg-primary text-white px-2 py-2">Login Instructions</h5>
+            <ul>
+              <li>If you are already registered on ITS Candidate Portal, then click on enter your CNIC Number and 6-digits password to login to your candidate portal.</li>
+              <li>If you are not registered on ITS Candidate Portal, click on 'Create an Account' link below to create a new account.</li>
+              <li>If you are registered on ITS Candidate Portal, but you have forgotten your password, then click on 'Forget Password' link to recover your password.</li>
             </ul>
-          </div>
-          <!-- Instruction content column -->
-          <div class="col-md-8 col-sm-12 mt-1">
-            <div class="tab-content">
-              <!-- Tab pane for login instructions -->
-              <div class="tab-pane fade {% if activeList == '1' %}show active{% endif %}" id="tab1">
-                <!-- List group for login instructions -->
-                <ul class="list-group">
-                  <li class="list-group-item">If you are already registered on ITS Candidate Portal, then click on enter your CNIC Number and 6-digits password to login to your candidate portal</li>
-                  <li class="list-group-item">If you are not registered on ITS Candidate Portal, click on 'Create an Account' link below to create a new account</li>
-                  <li class="list-group-item">If you are registered on ITS Candidate Portal, but you have forgotten your password, then click on 'Forget Password' link to recover your password.</li>
-                </ul>
-              </div>
-              <!-- Tab pane for registration instructions -->
-              <div class="tab-pane fade {% if activeList == '2' %}show active{% endif %}" id="tab2">
-                <!-- List group for registration instructions -->
-                <ul class="list-group">
-                  <!-- Registration Instructions -->
-                  <li class="list-group-item">Enter your Full Name as per your CNIC</li>
-                  <li class="list-group-item">Enter your CNIC number</li>
-                  <li class="list-group-item">If your CNIC or mobile number is already registered on the portal then go to login page to login to your account</li>
-                  <li class="list-group-item">Enter your email address. This field is optional. If you don't have an email address then leave this field empty</li>
-                  <li class="list-group-item">Click on 'Send Verification Code' button to send a verification code / OTP on your entered mobile number</li>
-                  <li class="list-group-item">After a few seconds, you will receive a four-digit verification code / OTP</li>
-                  <li class="list-group-item">If you dont receive the verification code / OTP, then you can resend the code after 1 minute</li>
-                  <li class="list-group-item">After receiving the Verification Code / OTP, enter the code below and click on <strong>'Sign Up'</strong> button</li>
-                  <li class="list-group-item">After a few seconds, you will receive a 6-digits password on your mobile number through which you can login to your account</li>
-                </ul>
-              </div>
-              <!-- Tab pane for forget password instructions -->
-              <div class="tab-pane fade {% if activeList == '3' %}show active{% endif %}" id="tab3">
-                <!-- List group for forget password instructions -->
-                <ul class="list-group">
-                  <!-- Forget Password Instructions -->
-                  <li class="list-group-item">Enter your CNIC number</li>
-                  <li class="list-group-item">Enter your mobile number</li>
-                  <li class="list-group-item">Click on 'SEND VERIFICATION CODE' button</li>
-                  <li class="list-group-item">If your given CNIC and mobile number is not linked with any account, the system will show you a message!</li>
-                  <li class="list-group-item">Enter your email address. This field is optional. If you don't have an email address then leave this field empty</li>
-                  <li class="list-group-item">Click on 'Send Verification Code' button to send a verification code / OTP on your entered mobile number</li>
-                  <li class="list-group-item">After a few seconds, you will receive a four-digit OTP / Verification Code on your mobile number</li>
-                  <li class="list-group-item">Enter the received OTP / Verification Code in the below field and click on 'SEND NEW PASSWORD' button</li>
-                  <li class="list-group-item">After a few seconds, you will receive a new password on your mobile number through which you can login to your account</li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </div>
+      <!-- Registration Instructions -->
+      <div class="tab-pane fade" id="registrationInstructions" role="tabpanel">
+        <!-- Content for Registration Instructions -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card card-title bg-primary text-white px-2 py-2">Registration Instructions</h5>
+            <ul>
+              <li>Enter your Full Name as per your CNIC.</li>
+              <li>Enter your CNIC number.</li>
+              <li>If your CNIC or mobile number is already registered on the portal then go to login page to login to your account.</li>
+              <li>Enter your email address. This field is optional. If you don't have an email address then leave this field empty.</li>
+              <li>Click on 'Send Verification Code' button to send a verification code / OTP on your entered mobile number.</li>
+              <li>After a few seconds, you will receive a four-digit verification code / OTP.</li>
+              <li>If you don't receive the verification code / OTP, then you can resend the code after 1 minute.</li>
+              <li>After receiving the Verification Code / OTP, enter the code below and click on 'Sign Up' button.</li>
+              <li>After a few seconds, you will receive a 6-digits password on your mobile number through which you can login to your account.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Forget Password Instructions -->
+      <div class="tab-pane fade" id="forgetPasswordInstructions" role="tabpanel">
+        <!-- Content for Forget Password Instructions -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card card-title bg-primary text-white px-2 py-2">Forget Password Instructions</h5>
+            <ul>
+              <li>Enter your CNIC number.</li>
+              <li>Enter your mobile number.</li>
+              <li>Click on 'SEND VERIFICATION CODE' button.</li>
+              <li>If your given CNIC and mobile number is not linked with any account, the system will show you a message!</li>
+              <li>Enter your email address. This field is optional. If you don't have an email address then leave this field empty.</li>
+              <li>Click on 'Send Verification Code' button to send a verification code / OTP on your entered mobile number.</li>
+              <li>After a few seconds, you will receive a four-digit OTP / Verification Code on your mobile number.</li>
+              <li>Enter the received OTP / Verification Code in the below field and click on 'SEND NEW PASSWORD' button.</li>
+              <li>After a few seconds, you will receive a new password on your mobile number through which you can login to your account.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- FAQ Section -->
+      {% comment %} <div class="tab-pane fade" id="faq" role="tabpanel">
+        <!-- FAQ Accordion -->
+        <div id="accordionFAQ" class="accordion">
+          <!-- FAQ Items -->
+          <!-- Add your FAQ items here using the same structure as above -->
+        </div>
+        <!-- End FAQ Accordion -->
+      </div> {% endcomment %}
     </div>
   </div>
-  
+  <!-- /Main content -->
+</div>
+
+
 
 {% endblock %}

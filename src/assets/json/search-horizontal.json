@@ -304,7 +304,12 @@
     {
       "name": "How to Apply",
       "icon": "ti-diamond",
-      "url": "/pages/how_to_apply/"
+      "url": "pages/pages_how_to_apply/"
+    },
+    {
+      "name": "Applications",
+      "icon": "ti-diamond",
+      "url": "pages/application/"
     },
     {
       "name": "Error",
@@ -747,6 +752,9 @@
       "url": "/maps/leaflet/"
     }
   ],
+
+
+  
   "files": [
     {
       "name": "Class Attendance",

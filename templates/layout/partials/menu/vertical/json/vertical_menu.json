@@ -496,6 +496,26 @@
           "slug": "pages-faq"
         },
         {
+          "url": "pages-applicaton",
+          "name": "Application",
+          "slug": "pages-applicaton"
+        },
+        {
+          "url": "pages-how-to-apply",
+          "name": "How to apply",
+          "slug": "pages-how-to-apply"
+        },
+        {
+          "url": "pages-active-projects",
+          "name": "Active projects",
+          "slug": "pages-active-projects"
+        },
+        {
+          "url": "pages-download-slip",
+          "name": "Download Slip",
+          "slug": "pages-download-slip"
+        },
+        {
           "url": "pages-pricing",
           "name": "Pricing",
           "slug": "pages-pricing"

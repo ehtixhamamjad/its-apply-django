@@ -1,0 +1,72 @@
+{% extends layout_path %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Downloadn slip - Pages{% endblock %}
+{% block content %}
+
+
+<div>
+  <div class="card text-center py-4 text-white" style="background-color:#7367f0;">
+    <h4 class="card-title text-white">Download Slips</h4>
+    <p class="card-text">Download and print the admit slips of your applied applications</p>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <div class="card mb-4 border">
+            <div class="card-body">
+              <span class="badge bg-success badge-glow mb-1">Issued</span>
+              <h4 class="card-title">Post Applied: Assistant Manager (Audit)</h4>
+              <p class="card-text"><strong>Project Name: </strong>SUKKUR ELECTRIC POWER COMPANY SUKKUR (SEPCO 2023)</p>
+              <p class="card-text"><strong>Closing Date: </strong>30-05-2023</p>
+              <hr>
+              <button class="btn btn-primary me-1" data-toggle="modal" data-target="#confirmationModal">
+                Preview
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="card mb-4 border">
+            <div class="card-body">
+              <span class="badge bg-primary badge-glow mb-1">Pending</span>
+              <h4 class="card-title">Post Applied: Junior Technician</h4>
+              <p class="card-text"><strong>Project Name: </strong>Pakistan Atomic Energy Commission (PAEC), 2023</p>
+              <p class="card-text"><strong>Closing Date: </strong>30-05-2023</p>
+              <hr>
+              <button class="btn btn-primary me-1" disabled>
+                Preview
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Your modal body content here -->
+        </div>
+        <div class="modal-footer">
+          <a href="/download-slips/print" class="btn btn-primary" target="_blank">
+            Print Slip
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,74 +1,59 @@
 {% extends layout_path %}
-
 {% load static %}
 {% load i18n %}
 
-{% block title %}Active projects - Pages{% endblock %}
+{% block title %}New Query - Pages{% endblock %}
 
-{% block page_css %}
-{{ block.super }}
-<link rel="stylesheet" href="{% static 'vendor/css/pages/page-active-projects.css' %}" />
-{% endblock page_css %}
-
-{% block page_js %}
-{{ block.super }}
-<script src="{% static 'js/pages-pricing.js' %}"></script>
-{% endblock page_js %}
 
 {% block content %}
-<div>
-  <div class="card text-center p-2 text-white" style="background-color:#7367f0;">
-    <h2 class="card-title text-white">Welcome to ITS Candidate Portal</h2>
-    <p class="card-text">
-      Apply on the latest projects of government and private sector organizations and build your career with us!
-    </p>
-    <div>
-      <a href="/" class="btn btn-light">How to Apply</a>
-    </div>
-  </div>
 
+
+<div>
+  <div class="card text-center py-4 text-white mb-3" style="background-color:#7367f0;">
+    <h4 class="card-title text-white">My Applications</h4>
+    <p class="card-text">Download Challan | View Status of Application</p>
+  </div>
   <div class="card">
     <div class="card-body">
-      <!-- Here goes the search form -->
-      <div class="row">
-        <div class="col-sm-12 col-md-12">
-          <!-- Here goes the search input -->
-          <label class="form-label" for="licenseNumber">
-            Project Search
-          </label>
-          <input type="text" placeholder="Search for a project with name ..." class="form-control" />
-        </div>
-      </div>
-
-      <!-- Here goes the list of active projects -->
-      <div class="card mt-3 border-primary">
-        <h4 class="card-title bg-primary text-white p-2">ITS | Inspire Testing Services</h4>
-        <div class="card-body px-2 py-0">
-          <div class="row">
-            <div class="col-sm-12 col-md-3">
-              <img class="img img-fluid" src="{% static 'img/pages/active-pr.jpg' %}" alt="Project Image" />
-            </div>
-            <div class="col-sm-12 col-md-9">
-              <h6 class="card-title mb-0 mt-1">Project Description:</h6>
-              <p class="card-text">Applications are invited from the Candidates (Male/Female) having domicile of Sindh Province (District Concerned) against the following vacant posts of Police Constable (BPS-07) in Sindh Police Department.</p>
-
-              <h6 class="card-title mb-0">Project Post Date:</h6>
-              <p class="card-text">23-03-2024</p>
-
-              <p class="card-text bg-danger text-white text-center" style="max-width: 200px; border-radius: 5px; padding: 3px;">
-                <strong>Closing Date: 23-04-2024</strong>
-              </p>
-            </div>
+      <form>
+        <div class="row">
+          <div class="col-md-6 col-sm-12 mb-1">
+            <label class="form-label" for="query">Query Type</label>
+            <select id="query" name="query" class="form-select">
+              <option value="General Query">General Query</option>
+              <option value="Application Query">Application Query</option>
+            </select>
+          </div>
+          <div class="col-md-6 col-sm-12 mb-1">
+            <label class="form-label" for="problem">Select Problem</label>
+            <select id="problem" name="problem" class="form-select">
+              <option value="Change CNIC Nmber">Change CNIC Number</option>
+              <option value="Change Mobile Nmber">Change Mobile Number</option>
+              <option value="Message Not Receiving">Message Not Receiving</option>
+              <option value="Can't Login">Can't Login</option>
+              <option value="Portal Not Working Properly">Portal Not Working Properly</option>
+              <option value="Forgot Password">Forgot Password</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
         </div>
-        <hr />
-        <div class="m-auto button-container">
-          <a href="/" class="btn btn-primary m-1">View Posts</a>
-          <a href="/" class="btn btn-primary m-1">Download Advertisement</a>
+        <div class="col-md-12 mb-1">
+          <label class="form-label" for="attachment">Attachment (Optional)</label>
+          <input type="file" id="attachment" name="attachment" class="form-control" />
         </div>
-      </div>
+        <div class="col-md-12 mb-1">
+          <label class="form-label" for="message">Message</label>
+          <textarea id="message" name="message" rows="3" placeholder="Enter your message here" class="form-control"></textarea>
+        </div>
+        <div class="col-sm-12">
+          <div class="d-flex">
+            <button class="btn btn-primary me-1" type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>
+
 
 {% endblock %}

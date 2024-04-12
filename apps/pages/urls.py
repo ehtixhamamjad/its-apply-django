@@ -50,11 +50,7 @@ urlpatterns = [
         login_required(PagesView.as_view(template_name="pages_account_settings_connections.html")),
         name="pages-account-settings-connections",
     ),
-    path(
-        "pages/faq/",
-        login_required(PagesView.as_view(template_name="pages_faq.html")),
-        name="pages-faq",
-    ),
+   
        path(
         "pages/pages_active_projects/",
         login_required(PagesView.as_view(template_name="pages_active_projects.html")),
@@ -69,6 +65,21 @@ urlpatterns = [
         "pages/pages_how_to_apply/",
         login_required(PagesView.as_view(template_name="pages_how_to_apply.html")),
         name="pages-how-to-apply",
+    ),
+     path(
+        "pages/faq/",
+        login_required(PagesView.as_view(template_name="pages_faq.html")),
+        name="pages-faq",
+    ),
+     path(
+        "pages/application/",
+        login_required(PagesView.as_view(template_name="pages_applicaton.html")),
+        name="pages-applicaton",
+    ),
+     path(
+        "pages/pages_download_slip",
+        login_required(PagesView.as_view(template_name="pages_download_slip.html")),
+        name="pages-download-slip",
     ),
     path(
         "pages/misc/error/",
