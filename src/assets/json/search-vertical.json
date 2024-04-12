@@ -285,11 +285,7 @@
       "icon": "ti-user",
       "url": "/pages/account_settings/account/"
     },
-    {
-      "name": "Account Settings - Security",
-      "icon": "ti-shield-chevron",
-      "url": "/pages/account_settings/security/"
-    },
+   
     {
       "name": "Account Settings - Billing & Plans",
       "icon": "ti-file-text",
@@ -311,9 +307,19 @@
       "url": "/pages/faq/"
     },
     {
+      "name": "Active projects",
+      "icon": "ti-shield-chevron",
+      "url": "pages/pages_active_projects/"
+    },
+    {
       "name": "Pricing",
       "icon": "ti-diamond",
       "url": "/pages/pricing/"
+    },
+    {
+      "name": "How to Apply",
+      "icon": "ti-diamond",
+      "url": "/pages/how-to-apply/"
     },
     {
       "name": "Error",

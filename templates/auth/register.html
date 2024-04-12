@@ -34,7 +34,7 @@
     <!-- /Left Text -->
     <div class="d-none d-lg-flex col-lg-7 p-0">
       <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
-        <img src="{% static 'img/illustrations/auth-register-illustration-' %}{{ COOKIES.style|default:style }}.png" alt="auth-register-cover" class="img-fluid my-5 auth-illustration" data-app-light-img="illustrations/auth-register-illustration-light.png" data-app-dark-img="illustrations/auth-register-illustration-dark.png">
+        <img src="{% static 'img/illustrations/auth-register-illustration-' %}{{ COOKIES.style|default:style }}.png" alt="auth-register-cover" class="img-fluid my-5 auth-illustration" data-app-light-img="illustrations/auth-register-illustration-light.svg" data-app-dark-img="illustrations/auth-register-illustration-dark.png">
 
         <img src="{% static 'img/illustrations/bg-shape-image-' %}{{ COOKIES.style|default:style }}.png" alt="auth-register-cover" class="platform-bg" data-app-light-img="illustrations/bg-shape-image-light.png" data-app-dark-img="illustrations/bg-shape-image-dark.png">
       </div>
@@ -53,8 +53,12 @@
           </a>
         </div>
         <!-- /Logo -->
-        <h3 class="mb-1">Adventure starts here 🚀</h3>
-        <p class="mb-4">Make your app management easy and fun!</p>
+        <h3 class="mb-1">Create an account</h3>
+
+        {% comment %}
+         <p class="mb-4">Make your app management easy and fun!</p>
+        {% endcomment %}
+       
         {% if messages %}
         {% for message in messages %}
         <div class="alert {% if message.tags == 'success' %}alert-success{% elif message.tags == 'error' %}alert-danger{% else %}alert-warning{% endif %}" role="alert">
@@ -68,9 +72,17 @@
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" autofocus>
           </div>
+           <div class="mb-3">
+            <label for="username" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter your Phone No." autofocus>
+          </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email">
+          </div>
+            <div class="mb-3">
+            <label for="email" class="form-label">CNIC</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Enter your CNIC">
           </div>
           <div class="mb-3 form-password-toggle">
             <label class="form-label" for="password">Password</label>

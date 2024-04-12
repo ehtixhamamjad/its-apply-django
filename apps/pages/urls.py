@@ -55,10 +55,20 @@ urlpatterns = [
         login_required(PagesView.as_view(template_name="pages_faq.html")),
         name="pages-faq",
     ),
+       path(
+        "pages/pages_active_projects/",
+        login_required(PagesView.as_view(template_name="pages_active_projects.html")),
+        name="pages-active-projects",
+    ),
     path(
         "pages/pricing/",
         login_required(PagesView.as_view(template_name="pages_pricing.html")),
         name="pages-pricing",
+    ),
+    path(
+        "pages/pages_how_to_apply/",
+        login_required(PagesView.as_view(template_name="pages_how_to_apply.html")),
+        name="pages-how-to-apply",
     ),
     path(
         "pages/misc/error/",
