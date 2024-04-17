@@ -22,9 +22,11 @@
               <p class="card-text"><strong>Project Name: </strong>SUKKUR ELECTRIC POWER COMPANY SUKKUR (SEPCO 2023)</p>
               <p class="card-text"><strong>Closing Date: </strong>30-05-2023</p>
               <hr>
-              <button class="btn btn-primary me-1" data-toggle="modal" data-target="#confirmationModal">
+              {% comment %} <button class="btn btn-primary me-1" data-toggle="modal" data-target="#confirmationModal">
                 Preview
-              </button>
+              </button> {% endcomment %}
+              <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-pricing' %}'">Download Slip</button>
+
             </div>
           </div>
         </div>
@@ -70,3 +72,4 @@
 </div>
 
 {% endblock %}
+          <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-pricing' %}'">Download Slip</button>

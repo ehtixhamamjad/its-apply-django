@@ -40,6 +40,168 @@
       ]
     },
     {
+      "menu_header": "Apps & Pages"
+    },
+    {
+      "name": "Pages",
+      "icon": "menu-icon tf-icons ti ti-file",
+      "slug": "pages",
+      "submenu": [
+        {
+          "name": "User Profile",
+          "slug": "pages-profile",
+          "submenu": [
+            {
+              "url": "pages-profile-user",
+              "name": "Profile",
+              "slug": "pages-profile-user"
+            },
+            {
+              "url": "pages-profile-address",
+              "name": "Address Info",
+              "slug": "pages-profile-address"
+            },
+            {
+              "url": "pages-profile-academic",
+              "name": "Academic Info",
+              "slug": "pages-profile-academic"
+            },
+            {
+              "url": "pages-profile-employment",
+              "name": "Employment Info",
+              "slug": "pages-profile-employment"
+            },
+            {
+              "url": "pages-profile-personal-info",
+              "name": "Personal Info",
+              "slug": "pages-profile-personal-info"
+            },
+            {
+              "url": "pages-profile-license-Info",
+              "name": "License Info",
+              "slug": "pages-profile-license-Info"
+            }
+          ]
+        },
+        {
+          "name": "Account Settings",
+          "slug": "pages-account-settings",
+          "submenu": [
+            {
+              "url": "pages-account-settings-account",
+              "name": "Account",
+              "slug": "pages-account-settings-account"
+            },
+            {
+              "url": "pages-account-settings-security",
+              "name": "Security",
+              "slug": "pages-account-settings-security"
+            },
+            {
+              "url": "pages-account-settings-billing",
+              "name": "Billing & Plans",
+              "slug": "pages-account-settings-billing"
+            },
+            {
+              "url": "pages-account-settings-notifications",
+              "name": "Notifications",
+              "slug": "pages-account-settings-notifications"
+            },
+            {
+              "url": "pages-account-settings-connections",
+              "name": "Connections",
+              "slug": "pages-account-settings-connections"
+            }
+          ]
+        },
+        {
+          "url": "pages-faq",
+          "name": "FAQ",
+          "slug": "pages-faq"
+        },
+        {
+          "url": "pages-applicaton",
+          "name": "Application",
+          "slug": "pages-applicaton"
+        },
+        {
+          "url": "pages-how-to-apply",
+          "name": "How to apply",
+          "slug": "pages-how-to-apply"
+        },
+        {
+          "url": "pages-active-projects",
+          "name": "Active projects",
+          "slug": "pages-active-projects"
+        },
+        {
+          "url": "pages-profile",
+          "name": "  Profile",
+          "slug": "pages-profile"
+        },
+        {
+          "url": "pages-download-slip",
+          "name": "Download Slip",
+          "slug": "pages-download-slip"
+        },
+        {
+          "url": "pages-new-query",
+          "name": "New Query",
+          "slug": "pages-new-query"
+        },
+        {
+          "url": "pages-pricing",
+          "name": "Pricing",
+          "slug": "pages-pricing"
+        },
+        {
+          "url": "pages-view-post",
+          "name": "View post",
+          "slug": "pages-view-post"
+        },
+        {
+          "url": "pages-apply-progress-form",
+          "name": "Online Apply",
+          "slug": "pages-apply-progress-form"
+        },
+        {
+          "url": "pages-print-slip",
+          "name": "Print Slip",
+          "slug": "pages-print-slip"
+        },
+        {
+          "name": "Misc",
+          "slug": "pages-misc",
+          "submenu": [
+            {
+              "url": "pages-misc-error",
+              "name": "Error",
+              "slug": "pages-misc-error",
+              "target": "_blank"
+            },
+            {
+              "url": "pages-misc-under-maintenance",
+              "name": "Under Maintenance",
+              "slug": "pages-misc-under-maintenance",
+              "target": "_blank"
+            },
+            {
+              "url": "pages-misc-comingsoon",
+              "name": "Coming Soon",
+              "slug": "pages-misc-comingsoon",
+              "target": "_blank"
+            },
+            {
+              "url": "pages-misc-not-authorized",
+              "name": "Not Authorized",
+              "slug": "pages-misc-not-authorized",
+              "target": "_blank"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Layouts",
       "icon": "menu-icon tf-icons ti ti-layout-sidebar",
       "slug": "layouts",
@@ -137,9 +299,7 @@
       "icon": "menu-icon tf-icons ti ti-database",
       "slug": "transactions"
     },
-    {
-      "menu_header": "Apps & Pages"
-    },
+    
     {
       "url": "app-email",
       "name": "Email",
@@ -428,130 +588,7 @@
         }
       ]
     },
-    {
-      "name": "Pages",
-      "icon": "menu-icon tf-icons ti ti-file",
-      "slug": "pages",
-      "submenu": [
-        {
-          "name": "User Profile",
-          "slug": "pages-profile",
-          "submenu": [
-            {
-              "url": "pages-profile-user",
-              "name": "Profile",
-              "slug": "pages-profile-user"
-            },
-            {
-              "url": "pages-profile-teams",
-              "name": "Teams",
-              "slug": "pages-profile-teams"
-            },
-            {
-              "url": "pages-profile-projects",
-              "name": "Projects",
-              "slug": "pages-profile-projects"
-            },
-            {
-              "url": "pages-profile-connections",
-              "name": "Connections",
-              "slug": "pages-profile-connections"
-            }
-          ]
-        },
-        {
-          "name": "Account Settings",
-          "slug": "pages-account-settings",
-          "submenu": [
-            {
-              "url": "pages-account-settings-account",
-              "name": "Account",
-              "slug": "pages-account-settings-account"
-            },
-            {
-              "url": "pages-account-settings-security",
-              "name": "Security",
-              "slug": "pages-account-settings-security"
-            },
-            {
-              "url": "pages-account-settings-billing",
-              "name": "Billing & Plans",
-              "slug": "pages-account-settings-billing"
-            },
-            {
-              "url": "pages-account-settings-notifications",
-              "name": "Notifications",
-              "slug": "pages-account-settings-notifications"
-            },
-            {
-              "url": "pages-account-settings-connections",
-              "name": "Connections",
-              "slug": "pages-account-settings-connections"
-            }
-          ]
-        },
-        {
-          "url": "pages-faq",
-          "name": "FAQ",
-          "slug": "pages-faq"
-        },
-        {
-          "url": "pages-applicaton",
-          "name": "Application",
-          "slug": "pages-applicaton"
-        },
-        {
-          "url": "pages-how-to-apply",
-          "name": "How to apply",
-          "slug": "pages-how-to-apply"
-        },
-        {
-          "url": "pages-active-projects",
-          "name": "Active projects",
-          "slug": "pages-active-projects"
-        },
-        {
-          "url": "pages-download-slip",
-          "name": "Download Slip",
-          "slug": "pages-download-slip"
-        },
-        {
-          "url": "pages-pricing",
-          "name": "Pricing",
-          "slug": "pages-pricing"
-        },
-        {
-          "name": "Misc",
-          "slug": "pages-misc",
-          "submenu": [
-            {
-              "url": "pages-misc-error",
-              "name": "Error",
-              "slug": "pages-misc-error",
-              "target": "_blank"
-            },
-            {
-              "url": "pages-misc-under-maintenance",
-              "name": "Under Maintenance",
-              "slug": "pages-misc-under-maintenance",
-              "target": "_blank"
-            },
-            {
-              "url": "pages-misc-comingsoon",
-              "name": "Coming Soon",
-              "slug": "pages-misc-comingsoon",
-              "target": "_blank"
-            },
-            {
-              "url": "pages-misc-not-authorized",
-              "name": "Not Authorized",
-              "slug": "pages-misc-not-authorized",
-              "target": "_blank"
-            }
-          ]
-        }
-      ]
-    },
+    
     {
       "name": "Authentications",
       "icon": "menu-icon tf-icons ti ti-lock",

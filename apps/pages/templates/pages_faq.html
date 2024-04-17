@@ -7,7 +7,7 @@
 
 {% block page_css %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static 'vendor/css/pages/page-faq.css' %}" />
+<link rel="stylesheet" href="{% static 'vendor/css/pages/profile.css' %}" />
 {% endblock page_css %}
 
 {% block content %}
@@ -53,6 +53,338 @@
     <li>Do not add your on-going / continued degrees.</li>
   </ul>
   <br>
+</div>
+
+<div class="mt-3 d-flex gap-2 parent">
+  <div class="col-md-9">
+    <!-- Replace with Django template tags if needed -->
+    {% comment %} {% include 'personal_info_template.html' %} {% endcomment %}
+    <div class="mb-3">
+      <ul class="list-group">
+        <li class="list-group-item active">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1 text-white">Personal Information</h5>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Full Name</h5>
+          </div>
+          <p class="mb-1">user</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">CNIC</h5>
+          </div>
+          <p class="mb-1">Cnic</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Mobile Number</h5>
+          </div>
+          <p class="mb-1">Mobile Number</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Email Address</h5>
+          </div>
+          <p class="mb-1">Email Address</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Father's / Husband's Name (written on CNIC)</h5>
+          </div>
+          <p class="mb-1">Father's / Husband's Name (written on CNIC)</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Gender</h5>
+          </div>
+          <p class="mb-1">gender</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Marital Status</h5>
+          </div>
+          <p class="mb-1">Marital Status</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Date of Birth</h5>
+          </div>
+          <p class="mb-1">Date of Birth</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Religion</h5>
+          </div>
+          <p class="mb-1">Religion</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Are you a Government Servant?</h5>
+          </div>
+          <p class="mb-1">Are you a Government Servant?</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Do you have any Disability?</h5>
+          </div>
+          <p class="mb-1">Do you have any Disability?</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Domicile District</h5>
+          </div>
+          <p class="mb-1">Domicile District</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Domicile Province</h5>
+          </div>
+          <p class="mb-1">Domicile Province</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Postal Address</h5>
+          </div>
+          <p class="mb-1">Postal Address</p>
+        </li>
+        <li class="list-group-item">
+          <button class="btn btn-primary">Edit Section</button>
+        </li>
+      </ul>
+    </div>
+    
+
+    {% comment %} address info {% endcomment %}
+    <div class="mb-3">
+      <ul class="list-group">
+        <li class="list-group-item active">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1 text-white">Address Information</h5>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Domicile District</h5>
+          </div>
+          <p class="mb-1">Domicile District</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Domicile Taluka / Tehsil</h5>
+          </div>
+          <p class="mb-1">Domicile Taluka / Tehsil</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Union Council / Town Committee</h5>
+          </div>
+          <p class="mb-1">Union Council / Town Committee</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Domicile No.</h5>
+          </div>
+          <p class="mb-1">Domicile No.</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">PRC-D No.</h5>
+          </div>
+          <p class="mb-1">PRC-D No</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Domicile Issuance Date</h5>
+          </div>
+          <p class="mb-1">Domicile Issuance Date</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">PRC-D Issuance Date</h5>
+          </div>
+          <p class="mb-1">PRC-D Issuance Date</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Domicile Urban / Rural</h5>
+          </div>
+          <p class="mb-1">Domicile Urban / Rural</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Domicile Original / Duplicate</h5>
+          </div>
+          <p class="mb-1">Domicile Original / Duplicate</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Current Address</h5>
+          </div>
+          <p class="mb-1">Current Address</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Postal Address</h5>
+          </div>
+          <p class="mb-1">Postal Address</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Permanent Address</h5>
+          </div>
+          <p class="mb-1">Permanent Address</p>
+        </li>
+        <li class="list-group-item">
+          <button class="btn btn-primary">Edit Section</button>
+        </li>
+      </ul>
+    </div>
+{% comment %} acadmic info     {% endcomment %}
+<div class="mb-3">
+  <ul class="list-group">
+    <li class="list-group-item active">
+      <div class="d-flex justify-content-between w-100">
+        <h5 class="mb-1 text-white">Academic Information</h5>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between w-100">
+        <h5 class="mb-1">Degree title: Bachelor of Science</h5>
+      </div>
+      <p>Degree: B.Sc.</p>
+      <p>Duration: 4 years</p>
+      <p>Passing Year: 2022</p>
+      <p>Marks Type: CGPA</p>
+      <p>Obtained Marks: 3.8</p>
+      <p>Total Marks: 4.0</p>
+      <p>Percentage: 95%</p>
+      <p>Board / Institute: ABC Board</p>
+      <p>Subjects: Physics, Mathematics</p>
+      <button class="btn btn-primary">Update</button>
+    </li>
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between w-100">
+        <h5 class="mb-1">Degree title: Master of Arts</h5>
+      </div>
+      <p>Degree: M.A.</p>
+      <p>Duration: 2 years</p>
+      <p>Passing Year: 2024</p>
+      <p>Marks Type: Percentage</p>
+      <p>Obtained Marks: 85%</p>
+      <p>Total Marks: 100%</p>
+      <p>Board / Institute: XYZ Institute</p>
+      <p>Subjects: English Literature</p>
+      <button class="btn btn-primary">Update</button>
+    </li>
+    <li class="list-group-item">
+      <button class="btn btn-primary">Add Education</button>
+    </li>
+  </ul>
+</div>
+{% comment %} experience info  {% endcomment %}
+<div class="mb-3">
+  <ul class="list-group">
+    <li class="list-group-item active">
+      <div class="d-flex justify-content-between w-100">
+        <h5 class="mb-1 text-white">Employment Information</h5>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between w-100">
+        <h5 class="mb-1">Organization: ABC Company</h5>
+      </div>
+      <p>Designation: Software Engineer</p>
+      <p>Start Date: 2019-01-01</p>
+      <p>End Date: 2021-12-31</p>
+      <button class="btn btn-primary">Update</button>
+    </li>
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between w-100">
+        <h5 class="mb-1">Organization: XYZ Corporation</h5>
+      </div>
+      <p>Designation: Project Manager</p>
+      <p>Start Date: 2022-01-01</p>
+      <p>End Date: 2023-12-31</p>
+      <button class="btn btn-primary">Update</button>
+    </li>
+    <li class="list-group-item">
+      <button class="btn btn-primary">Add Experience</button>
+    </li>
+  </ul>
+</div>
+
+
+{% comment %}     
+    {% include 'address_info_template.html' %}
+
+    {% include 'academic_info_template.html' %}
+    {% include 'experience_info_template.html' %} {% endcomment %}
+
+    <!-- Button -->
+    <button class="btn btn-primary mb-2">
+      Click here to Add / View License Information
+    </button>
+
+
+    <!-- License Info -->
+    {% comment %} {% include 'license_info_template.html' %} {% endcomment %}
+    <div>
+      <ul class="list-group">
+        <li class="list-group-item active">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1 text-white">License Information</h5>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">License Type</h5>
+          </div>
+          <p class="mb-1">License Type</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">License Number</h5>
+          </div>
+          <p class="mb-1">License Number</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Issue Date</h5>
+          </div>
+          <p class="mb-1">Issue Date</p>
+        </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between w-100">
+            <h5 class="mb-1">Valid Upto</h5>
+          </div>
+          <p class="mb-1">Valid Upto</p>
+        </li>
+        <li class="list-group-item">
+          <button class="btn btn-primary">Edit Section</button>
+        </li>
+      </ul>
+    </div>
+    
+  </div>
+
+  <div class="col-md-3">
+
+    <div class="mb-3">
+      <h5>Passport Size Photo</h5>
+      <img src="{% static 'images/passport_photo.jpg' %}" alt="Passport Size Photo">
+    </div>
+    <div class="mb-3">
+      <h5>CNIC Front Side</h5>
+      <img src="{% static 'images/cnic_front.jpg' %}" alt="CNIC Front Side">
+    </div>
+    <div class="mb-3">
+      <h5>CNIC Back Side</h5>
+      <img src="{% static 'images/cnic_back.jpg' %}" alt="CNIC Back Side">
+    </div>
+  </div>
 </div>
 
 

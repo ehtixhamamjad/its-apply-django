@@ -32,7 +32,10 @@
         </div>
         <hr>
         <div class="px-2 py-1 m-auto">
-          <button class="btn btn-primary" data-toggle="modal" data-target="#confirmationModal">Download Slip</button>
+          {% comment %} <button class="btn btn-primary" data-toggle="modal" data-target="#confirmationModal"></button> {% endcomment %}
+          <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-pricing' %}'">Download Slip</button>
+
+          {% comment %} <button class="btn btn-primary" data-toggle="modal" data-target="#confirmationModal">Download Slip</button> {% endcomment %}
         </div>
       </div>
     </div>
@@ -40,7 +43,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+{% comment %} <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-fullscreen" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -86,7 +89,7 @@
       </div>
     </div>
   </div>
-</div> 
+</div>  {% endcomment %}
 
 
 

@@ -11,19 +11,29 @@ urlpatterns = [
         name="pages-profile-user",
     ),
     path(
-        "pages/profile/teams/",
+        "pages/profile/address/",
         login_required(PagesView.as_view(template_name="pages_profile_teams.html")),
-        name="pages-profile-teams",
+        name="pages-profile-address",
     ),
     path(
-        "pages/profile/projects/",
+        "pages/profile/academic/",
         login_required(PagesView.as_view(template_name="pages_profile_projects.html")),
-        name="pages-profile-projects",
+        name="pages-profile-academic",
     ),
     path(
-        "pages/profile/connections/",
+        "pages/profile/employment/",
         login_required(PagesView.as_view(template_name="pages_profile_connections.html")),
-        name="pages-profile-connections",
+        name="pages-profile-employment",
+    ),
+     path(
+        "pages/profile/personal_info/",
+        login_required(PagesView.as_view(template_name="pages_profile_personals_info.html")),
+        name="pages-profile-personal-info",
+    ),
+     path(
+        "pages/profile/license_Info/",
+        login_required(PagesView.as_view(template_name="pages_profile_license_Info.html")),
+        name="pages-profile-license-Info",
     ),
     path(
         "pages/account_settings/account/",
@@ -56,10 +66,30 @@ urlpatterns = [
         login_required(PagesView.as_view(template_name="pages_active_projects.html")),
         name="pages-active-projects",
     ),
+     path(
+        "pages/pages_profile/",
+        login_required(PagesView.as_view(template_name="pages_profile.html")),
+        name="pages-profile",
+    ),
     path(
         "pages/pricing/",
         login_required(PagesView.as_view(template_name="pages_pricing.html")),
         name="pages-pricing",
+    ),
+      path(
+        "pages/print_slip/",
+        login_required(PagesView.as_view(template_name="pages_print_slip.html")),
+        name="pages-print-slip",
+    ),
+     path(
+        "pages/view_post/",
+        login_required(PagesView.as_view(template_name="pages_view_post.html")),
+        name="pages-view-post",
+    ),
+    path(
+        "pages/pages_apply_progress_form/",
+        login_required(PagesView.as_view(template_name="pages_apply_progress_form.html")),
+        name="pages-apply-progress-form",
     ),
     path(
         "pages/pages_how_to_apply/",
@@ -80,6 +110,11 @@ urlpatterns = [
         "pages/pages_download_slip",
         login_required(PagesView.as_view(template_name="pages_download_slip.html")),
         name="pages-download-slip",
+    ),
+    path(
+        "pages/pages_new_query",
+        login_required(PagesView.as_view(template_name="pages_new_query.html")),
+        name="pages-new-query",
     ),
     path(
         "pages/misc/error/",

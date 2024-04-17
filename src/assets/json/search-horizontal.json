@@ -248,17 +248,27 @@
     {
       "name": "User Profile - Teams",
       "icon": "ti-users",
-      "url": "/pages/profile/teams/"
+      "url": "pages/profile/address/"
     },
     {
-      "name": "User Profile - Projects",
+      "name": "User Profile - Academic",
       "icon": "ti-layout-grid",
-      "url": "/pages/profile/projects/"
+      "url": "pages/profile/academic/"
     },
     {
-      "name": "User Profile - Connections",
+      "name": "User Profile - Employment",
       "icon": "ti-link",
-      "url": "/pages/profile/connections/"
+      "url": "pages/profile/employment/"
+    },
+    {
+      "name": "User Profile - Personal Info",
+      "icon": "ti-link",
+      "url": "pages/profile/personal_info/"
+    },
+    {
+      "name": "User Profile - license Info",
+      "icon": "ti-link",
+      "url": "pages/profile/license_Info/"
     },
     {
       "name": "Account Settings - Account",
@@ -297,9 +307,29 @@
       "url": "pages/pages_active_projects/"
     },
     {
+      "name": "Profile",
+      "icon": "ti-shield-chevron",
+      "url": "pages/pages_profile/"
+    },
+    {
       "name": "Pricing",
       "icon": "ti-diamond",
       "url": "/pages/pricing/"
+    },
+    {
+      "name": "Print Slip",
+      "icon": "ti-diamond",
+      "url": "pages/print_slip/"
+    },
+    {
+      "name": "View Post",
+      "icon": "ti-diamond",
+      "url": "pages/view_post/"
+    },
+    {
+      "name": "Online Apply",
+      "icon": "ti-diamond",
+      "url": "pages/pages_apply_progress_form/"
     },
     {
       "name": "How to Apply",
@@ -310,6 +340,11 @@
       "name": "Applications",
       "icon": "ti-diamond",
       "url": "pages/application/"
+    },
+    {
+      "name": "Queries",
+      "icon": "ti-diamond",
+      "url": "pages/pages_new_query"
     },
     {
       "name": "Error",

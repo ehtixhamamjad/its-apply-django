@@ -20,7 +20,9 @@
         Apply on the latest projects of government and private sector organizations and build your career with us!
       </p>
       <div>
-        <a href="/" class="btn btn-primary">How to Apply</a>
+        {% comment %} <a href="/" class="btn btn-primary">How to Apply</a> {% endcomment %}
+        <button class="btn btn-light" onclick="window.location.href='{% url 'pages-how-to-apply' %}'">How to Apply</button>
+
       </div>
     </div>
   
@@ -60,8 +62,13 @@
           </div>
           <hr />
           <div class="m-auto button-container">
-            <a href="/" class="btn btn-primary m-1">View Posts</a>
-            <a href="/" class="btn btn-primary m-1">Download Advertisement</a>
+            {% comment %} <a href="/" class="btn btn-primary m-1">View Posts</a> {% endcomment %}
+            <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-view-post' %}'">View Posts</button>
+
+            {% comment %} <a href="/" class="btn btn-primary m-1">Download Advertisement</a> {% endcomment %}
+            <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-view-post' %}'">Download Advertisement</button>
+     
+            
           </div>
         </div>
       </div>

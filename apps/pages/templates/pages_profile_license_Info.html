@@ -1,0 +1,47 @@
+
+{% extends layout_path %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}License Information - Pages{% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+  <div class="col-xl">
+    <div class="card mb-4">
+      <div class="card-header d-flex justify-content-between align-items-center bg-primary ">
+        <h5 class="mb-0 text-white">License Information</h5> 
+      </div>
+      <div class="card-body mb-2">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3 mt-2">
+                <label for="license_type" class="form-label">License Type</label>
+                <input type="text" class="form-control" id="license_type" name="license_type" placeholder="License Type">
+            </div>
+            <div class="mb-3">
+                <label for="license_number" class="form-label">License Number</label>
+                <input type="text" class="form-control" id="license_number" name="license_number" placeholder="License Number">
+            </div>
+            <div class="mb-3">
+                <label for="issue_date" class="form-label">Issue Date</label>
+                <input type="date" class="form-control" id="issue_date" name="issue_date">
+            </div>
+            <div class="mb-3">
+                <label for="valid_upto" class="form-label">Valid Upto</label>
+                <input type="date" class="form-control" id="valid_upto" name="valid_upto">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-dark" onclick="window.location.href='{% url 'pages-profile-user' %}'">Back to Profile</button>
+
+        </form>
+        
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

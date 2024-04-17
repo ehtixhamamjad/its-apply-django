@@ -1,0 +1,59 @@
+{% extends layout_path %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}New Query - Pages{% endblock %}
+
+
+{% block content %}
+
+
+<div>
+  <div class="card text-center py-4 text-white mb-3" style="background-color:#7367f0;">
+    <h4 class="card-title text-white">My Applications</h4>
+    <p class="card-text">Download Challan | View Status of Application</p>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <div class="row">
+          <div class="col-md-6 col-sm-12 mb-1">
+            <label class="form-label" for="query">Query Type</label>
+            <select id="query" name="query" class="form-select">
+              <option value="General Query">General Query</option>
+              <option value="Application Query">Application Query</option>
+            </select>
+          </div>
+          <div class="col-md-6 col-sm-12 mb-1">
+            <label class="form-label" for="problem">Select Problem</label>
+            <select id="problem" name="problem" class="form-select">
+              <option value="Change CNIC Nmber">Change CNIC Number</option>
+              <option value="Change Mobile Nmber">Change Mobile Number</option>
+              <option value="Message Not Receiving">Message Not Receiving</option>
+              <option value="Can't Login">Can't Login</option>
+              <option value="Portal Not Working Properly">Portal Not Working Properly</option>
+              <option value="Forgot Password">Forgot Password</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-12 mb-1">
+          <label class="form-label" for="attachment">Attachment (Optional)</label>
+          <input type="file" id="attachment" name="attachment" class="form-control" />
+        </div>
+        <div class="col-md-12 mb-1">
+          <label class="form-label" for="message">Message</label>
+          <textarea id="message" name="message" rows="3" placeholder="Enter your message here" class="form-control"></textarea>
+        </div>
+        <div class="col-sm-12">
+          <div class="d-flex">
+            <button class="btn btn-primary me-1" type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
