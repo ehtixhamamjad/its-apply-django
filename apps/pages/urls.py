@@ -12,17 +12,17 @@ urlpatterns = [
     ),
     path(
         "pages/profile/address/",
-        login_required(PagesView.as_view(template_name="pages_profile_teams.html")),
+        login_required(PagesView.as_view(template_name="pages_profile_address.html")),
         name="pages-profile-address",
     ),
     path(
         "pages/profile/academic/",
-        login_required(PagesView.as_view(template_name="pages_profile_projects.html")),
+        login_required(PagesView.as_view(template_name="pages_profile_academic.html")),
         name="pages-profile-academic",
     ),
     path(
         "pages/profile/employment/",
-        login_required(PagesView.as_view(template_name="pages_profile_connections.html")),
+        login_required(PagesView.as_view(template_name="pages_profile_employment.html")),
         name="pages-profile-employment",
     ),
      path(
@@ -115,6 +115,11 @@ urlpatterns = [
         "pages/pages_new_query",
         login_required(PagesView.as_view(template_name="pages_new_query.html")),
         name="pages-new-query",
+    ),
+      path(
+        "pages/pages_student",
+        login_required(PagesView.as_view(template_name="pages_student.html")),
+        name="pages-student",
     ),
     path(
         "pages/misc/error/",

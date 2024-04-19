@@ -1,0 +1,54 @@
+{% extends layout_path %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}student page{% endblock %}
+
+{% comment %} {% block page_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'vendor/css/pages/profile.css' %}" />
+{% endblock page_css %} {% endcomment %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Add Student</h1>
+    <form method="POST">
+      {% csrf_token %} {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+  
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Roll</label>
+        <input
+          type="text"
+          class="form-control"
+          name="roll"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">City</label>
+        <input
+          type="text"
+          class="form-control"
+          name="city"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+
+{% endblock %}

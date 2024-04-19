@@ -13,7 +13,7 @@
 {% load static %}
 
 <div>
-  <div class="card text-center py-4 mb-3 text-white" style="background-color:#7367f0;">
+  <div class="card text-center py-4 mb-3 text-white" style="background-color:#57b139;">
     <h4 class="card-title text-white">My Applications</h4>
     <p class="card-text">Download Slip | View Status of Application</p>
   </div>
@@ -33,7 +33,7 @@
         <hr>
         <div class="px-2 py-1 m-auto">
           {% comment %} <button class="btn btn-primary" data-toggle="modal" data-target="#confirmationModal"></button> {% endcomment %}
-          <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-pricing' %}'">Download Slip</button>
+          <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-print-slip' %}'">Download Slip</button>
 
           {% comment %} <button class="btn btn-primary" data-toggle="modal" data-target="#confirmationModal">Download Slip</button> {% endcomment %}
         </div>
