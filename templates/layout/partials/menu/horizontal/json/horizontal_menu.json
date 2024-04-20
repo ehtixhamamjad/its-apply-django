@@ -158,6 +158,12 @@
           "slug": "pages-pricing"
         },
         {
+          "url": "pages-student",
+          "name": "Student",
+          "icon": "menu-icon tf-icons ti ti-diamond",
+          "slug": "pages-student"
+        },
+        {
           "name": "Account Settings",
           "icon": "menu-icon tf-icons ti ti-settings",
           "slug": "pages-account-settings",

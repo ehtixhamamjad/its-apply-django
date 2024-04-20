@@ -47,8 +47,8 @@
         <!-- Logo -->
         <div class="app-brand mb-4">
           <a href="{% url 'index' %}" class="app-brand-link">
-            <span class="app-brand-logo demo">
-              {% include 'partials/logo.html' with height=20 bgcolor="fill: #fff;" %}
+            <span >
+              {% include 'partials/logo1.html' with height=20 bgcolor="fill: #fff;" %}
             </span>
           </a>
         </div>
@@ -81,11 +81,16 @@
             <label for="email" class="form-label">CNIC</label>
             <input type="email" class="form-control" id="email" name="email-username" value="admin@demo.com" placeholder="Email/Username" autofocus />
           </div>
+          {% comment %} <div class="mb-3">
+            <label for="cnic" class="form-label">CNIC (Without dashes)</label>
+            <input type="text" class="form-control" id="cnic" name="cnic" placeholder="Enter your CNIC number" maxlength="13" pattern="[0-9]{13}" title="Please enter a valid 13-digit CNIC number without dashes">
+          </div> {% endcomment %}
+          
           <div class="mb-3 form-password-toggle">
             <div class="d-flex justify-content-between">
               <label class="form-label" for="password">Password</label>
               <a href="{% url 'forgot-password' %}">
-                <small>Forgot Password?</small>
+                <small style="color:#57b139;">Forgot Password?</small>
               </a>
             </div>
             <div class="input-group input-group-merge">
@@ -110,7 +115,7 @@
         <p class="text-center">
           <span>New on our platform?</span>
           <a href="{% url 'register' %}">
-            <span>Create an account</span>
+            <span style="color:#57b139;">Create an account</span>
           </a>
         </p>
 

@@ -3,6 +3,84 @@
 {% load static %}
 {% load i18n %}
 
+{% block title %}Active Project - Pages{% endblock %}
+
+{% block page_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'vendor/css/pages/page-active-projects.css' %}" />
+{% endblock page_css %}
+
+
+
+{% block content %}
+<div>
+    <div class="card text-center p-2 text-white" style="background-color:#57b139;">
+      <h2 class="card-title text-white">Welcome to ITS Candidate Portal</h2>
+      <p class="card-text">
+        Apply on the latest projects of government and private sector organizations and build your career with us!
+      </p>
+      <div>
+        {% comment %} <a href="/" class="btn btn-primary">How to Apply</a> {% endcomment %}
+        <button class="btn btn-light" onclick="window.location.href='{% url 'pages-how-to-apply' %}'">How to Apply</button>
+
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="card-body">
+        <!-- Here goes the search form -->
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <!-- Here goes the search input -->
+            <label class="form-label" for="licenseNumber">
+              Project Search
+            </label>
+            <input type="text" placeholder="Search for a project with name ..." class="form-control" />
+          </div>
+        </div>
+  
+        <!-- Here goes the list of active projects -->
+        <div class="card mt-3 border-primary">
+          <h4 class="card-title bg-primary text-white p-2">ITS | Inspire Testing Services</h4>
+          <div class="card-body px-2 py-0">
+            <div class="row">
+              <div class="col-sm-12 col-md-3">
+                <img class="img img-fluid" src="{% static 'img/pages/active-pr.jpg' %}" alt="Project Image" />
+              </div>
+              <div class="col-sm-12 col-md-9">
+                <h6 class="card-title mb-0 mt-1">Project Description:</h6>
+                <p class="card-text">Applications are invited from the Candidates (Male/Female) having domicile of Sindh Province (District Concerned) against the following vacant posts of Police Constable (BPS-07) in Sindh Police Department.</p>
+  
+                <h6 class="card-title mb-0">Project Post Date:</h6>
+                <p class="card-text">23-03-2024</p>
+  
+                <p class="card-text bg-danger text-white text-center" style="max-width: 200px; border-radius: 5px; padding: 3px;">
+                  <strong>Closing Date: 23-04-2024</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="m-auto button-container">
+            {% comment %} <a href="/" class="btn btn-primary m-1">View Posts</a> {% endcomment %}
+            <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-view-post' %}'">View Posts</button>
+
+            {% comment %} <a href="/" class="btn btn-primary m-1">Download Advertisement</a> {% endcomment %}
+            <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-view-post' %}'">Download Advertisement</button>
+     
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% comment %} {% extends layout_path %}
+
+{% load static %}
+{% load i18n %}
+
 {% block title %}Dashboard - Analytics{% endblock %}
 
 {% block vendor_css %}
@@ -761,4 +839,4 @@
   </div>
   <!--/ Projects table -->
 </div>
-{% endblock content %}
+{% endblock content %} {% endcomment %}

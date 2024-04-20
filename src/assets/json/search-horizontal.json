@@ -347,6 +347,11 @@
       "url": "pages/pages_new_query"
     },
     {
+      "name": "Student",
+      "icon": "ti-diamond",
+      "url": "pages/pages_student"
+    },
+    {
       "name": "Error",
       "icon": "ti-alert-circle",
       "url": "/pages/misc/error/"
