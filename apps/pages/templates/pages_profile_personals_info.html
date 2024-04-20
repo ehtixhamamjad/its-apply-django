@@ -11,34 +11,34 @@
   <div class="col-xl">
     <div class="card mb-4">
       <div class="card-header d-flex justify-content-between align-items-center bg-primary ">
-        <h5 class="mb-0 text-white">Personal Information</h5> 
+        <h5 class="mb-0 text-white">Personal Information</h5>
       </div>
       <div class="card-body mb-2">
-        <form>
-          {% csrf_token %}
-          <div class="mb-3 mt-2">
+        <form method="post" action="{% url 'userInfo' %}">
+            {% csrf_token %}
+           <div class="mb-3 mt-2">
             <label class="form-label" for="basic-default-fullname">Full Name</label>
-            <input type="text" class="form-control" id="basic-default-fullname" placeholder="John Doe" />
+            <input type="text" name="username" class="form-control" id="basic-default-fullname" placeholder="John Doe" />
           </div>
           <div class="mb-3">
             <label class="form-label" for="basic-default-cnic">CNIC</label>
-            <input type="text" class="form-control" id="basic-default-cnic" placeholder="XXXXX-XXXXXXX-X" />
+            <input type="text" name="cnic" class="form-control" id="basic-default-cnic" placeholder="XXXXX-XXXXXXX-X" />
           </div>
           <div class="mb-3">
             <label class="form-label" for="basic-default-mobile">Mobile Number</label>
-            <input type="text" class="form-control" id="basic-default-mobile" placeholder="03XX-XXXXXXX" />
+            <input type="text" name="phonenum" class="form-control" id="basic-default-mobile" placeholder="03XX-XXXXXXX" />
           </div>
           <div class="mb-3">
             <label class="form-label" for="basic-default-email">Email Address</label>
-            <input type="email" class="form-control" id="basic-default-email" placeholder="john.doe@example.com" />
+            <input type="email" name="email" class="form-control" id="basic-default-email" placeholder="john.doe@example.com" />
           </div>
           <div class="mb-3">
             <label class="form-label" for="basic-default-fathername">Father's / Husband's Name</label>
-            <input type="text" class="form-control" id="basic-default-fathername" placeholder="Father's / Husband's Name" />
+            <input type="text" name="fname" class="form-control" id="basic-default-fathername" placeholder="Father's / Husband's Name" />
           </div>
           <div class="mb-3">
             <label class="form-label" for="basic-default-gender">Gender</label>
-            <select class="form-select" id="basic-default-gender">
+            <select class="form-select" name="gender" id="basic-default-gender">
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
@@ -46,7 +46,7 @@
           </div>
           <div class="mb-3">
             <label class="form-label" for="basic-default-marital-status">Marital Status</label>
-            <select class="form-select" id="basic-default-marital-status">
+            <select class="form-select" name="status" id="basic-default-marital-status">
               <option value="single">Single</option>
               <option value="married">Married</option>
               <option value="divorced">Divorced</option>
@@ -55,23 +55,23 @@
           </div>
           <div class="mb-3">
             <label class="form-label" for="basic-default-dob">Date of Birth</label>
-            <input type="date" class="form-control" id="basic-default-dob" />
+            <input type="date" name="dob" class="form-control" id="basic-default-dob" />
           </div>
           <div class="mb-3">
             <label class="form-label" for="basic-default-religion">Religion</label>
-            <input type="text" class="form-control" id="basic-default-religion" placeholder="Religion" />
+            <input type="text" name="religion" class="form-control" id="basic-default-religion" placeholder="Religion" />
           </div>
           <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="basic-default-gov-servant" />
-            <label class="form-check-label" for="basic-default-gov-servant">Are you a Government Servant?</label>
+            <input type="checkbox" name="govt" class="form-check-input" id="basic-default-gov-servant" />
+            <label class="form-check-label"  for="basic-default-gov-servant">Are you a Government Servant?</label>
           </div>
           <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="basic-default-disability" />
-            <label class="form-check-label" for="basic-default-disability">Do you have any Disability?</label>
+            <input type="checkbox" name="dis" class="form-check-input" id="basic-default-disability" />
+            <label class="form-check-label" name="dis" for="basic-default-disability">Do you have any Disability?</label>
           </div>
           <div class="mb-3">
             <label class="form-label" for="basic-default-district">Domicile District</label>
-            <input type="text" class="form-control" id="basic-default-district" placeholder="Domicile District" />
+            <input type="text" name="dom" class="form-control" id="basic-default-district" placeholder="Domicile District" />
           </div>
           <div class="mb-3">
             <label class="form-label" for="basic-default-province">Domicile Province</label>
@@ -79,10 +79,11 @@
           </div>
           <div class="mb-3">
             <label class="form-label" for="basic-default-address">Postal Address</label>
-            <textarea class="form-control" id="basic-default-address" rows="3" placeholder="Postal Address"></textarea>
+            <textarea class="form-control" name="post" id="basic-default-address" rows="3" placeholder="Postal Address"></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Send</button>
           <button type="button" class="btn btn-dark" onclick="window.location.href='{% url 'pages-profile-user' %}'">Back to Profile</button>
+
 
         </form>
       </div>
