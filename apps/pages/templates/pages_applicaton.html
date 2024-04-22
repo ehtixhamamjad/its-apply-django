@@ -33,10 +33,66 @@
         <hr>
         <div class="px-2 py-1 m-auto">
           {% comment %} <button class="btn btn-primary" data-toggle="modal" data-target="#confirmationModal"></button> {% endcomment %}
-          <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-print-slip' %}'">Download Slip</button>
-
+          {% comment %} <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-print-slip' %}'">Download Slip</button> {% endcomment %}
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal">
+            Download Slip
+          </button>
           {% comment %} <button class="btn btn-primary" data-toggle="modal" data-target="#confirmationModal">Download Slip</button> {% endcomment %}
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        {% comment %} <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5> {% endcomment %}
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          {% comment %} <div class="card-header">Confirmation</div> {% endcomment %}
+          <div class="card-header mb-2 text-white text-center fs-4" style="background-color:#57b139;">Confirmation</div>
+
+          <div class="card-body">
+              <div id="print-content" class="p-2" style="border: 5px solid #F30002;">
+                  <div class="d-flex align-items-center justify-content-center flex-column mb-1">
+                      <img src="{% static 'img/pages/logo.png' %}" style="width: 110px; height: 60px;" class="mx-auto" alt="CTS Logo">
+                      <h4 class="mt-2">Exam Name</h4>
+                  </div>
+                  <div class="d-flex justify-content-between p-1 bc" style="border: 5px solid #0041FD; background-color: #EFF3FF;">
+                      <div class="student-info">
+                          <p><strong class="text-primary">Roll No: </strong><span class="fw-bold">9785653</span></p>
+                          <p><strong class="text-primary">Name: </strong><span class="fw-bold">Ahemd Ali</span></p>
+                          <p><strong class="text-primary">Father Name: </strong><span class="fw-bold">Muhammad Ali</span></p>
+                          <p><strong class="text-primary">CNIC: </strong><span class="fw-bold">61101-8157206-4</span></p>
+                          <p><strong class="text-primary">Exam: </strong><span class="fw-bold">Initial Assessment</span></p>
+                          <p><strong class="text-primary">Test Date: </strong><span class="fw-bold">22-08-2023</span></p>
+                          <p><strong class="text-primary">Test Time: </strong>12:30 PM</p>
+                          <p><strong class="text-primary">Test Center: </strong><span class="fw-bold">Saddar Rawalpindi</span></p>
+                      </div>
+                      <img src="{% static 'img/pages/placeholder-image.jpg' %}" style="width: 150px; height: 150px;" alt="Placeholder Image">
+                  </div>
+                  <div class="p-1">
+                      <p class="m-0 p-0"><strong>Instructions:</strong></p>
+                      <p>Candidates are provisionally allowed to appear in the test, subject to verification of credentials and eligibility criteria.</p>
+                      <p class="m-0 p-0"><strong>Additional Instructions:</strong></p>
+                      <ul>
+                          <li>You are advised to bring this ROLL NO SLIP along with your original National ID Card or Passport and Matric certificate containing your photograph. Candidates failing to produce ROLL NO SLIP OR CNIC would not be allowed to enter the examination hall.</li>
+                          <li>Mobile phones, calculators, or any other electronic devices are not allowed in the Test Center Premises.</li>
+                          <li>Mobile collection facility will not be provided at the test center.</li>
+                          <li>No candidate will be allowed to enter the exam hall after 30 minutes of the start of the test.</li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="text-center mt-3">
+                  <button type="button" class="btn btn-primary" onclick="window.print()">Print Slip</button>
+                  <button type="button" class="btn btn-dark" onclick="window.location.href='{% url 'pages-applicaton' %}'">Back to application</button>
+              </div>
+          </div>
       </div>
     </div>
   </div>

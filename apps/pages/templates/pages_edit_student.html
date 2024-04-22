@@ -1,0 +1,52 @@
+{% extends layout_path %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}Edit student page{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    <h1>Edit Student</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          value="{{ student.name }}"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Roll</label>
+        <input
+          type="text"
+          class="form-control"
+          name="roll"
+          value="{{ student.roll }}"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">City</label>
+        <input
+          type="text"
+          class="form-control"
+          name="city"
+          value="{{ student.city }}"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  {% endblock %}

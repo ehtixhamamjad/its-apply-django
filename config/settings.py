@@ -79,7 +79,8 @@ INSTALLED_APPS = [
     "apps.charts",
     "apps.maps",
     "apps.transactions",
-    "auth.apps.AuthConfig"
+    "auth.apps.AuthConfig",
+   
 ]
 
 MIDDLEWARE = [
