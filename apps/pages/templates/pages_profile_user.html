@@ -15,7 +15,7 @@
   <div class="d-flex align-items-center justify-content-center">
     <img class="img-fluid mb-3 img" src="{% static 'img/pages/sampleImage.jpeg' %}" alt="Instructions Image">
   </div>
-  
+
   <ul >
     <li style="list-style: none;"><strong>Instructions for Uploading Files:</strong></li>
     <li>Attach your recent Passport Size photograph with blue/white background.</li>
@@ -55,11 +55,8 @@
   </ul>
   <br>
 </div>
-
 <div class="mt-3 d-flex gap-2 parent">
   <div class="col-md-9">
-    <!-- Replace with Django template tags if needed -->
-    {% comment %} {% include 'personal_info_template.html' %} {% endcomment %}
     <div class="mb-3">
       <ul class="list-group">
         <li class="list-group-item active">
@@ -67,187 +64,44 @@
             <h5 class="mb-1 text-white">Personal Information</h5>
           </div>
         </li>
+        {% for field, value in user_info.items %}
         <li class="list-group-item">
           <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Full Name</h5>
+            <h5 class="mb-1">{{ field|title }}</h5>
           </div>
-          <p class="mb-1">user</p>
+          <p class="mb-1">{{ value }}</p>
         </li>
+        {% endfor %}
         <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">CNIC</h5>
-          </div>
-          <p class="mb-1">Cnic</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Mobile Number</h5>
-          </div>
-          <p class="mb-1">Mobile Number</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Email Address</h5>
-          </div>
-          <p class="mb-1">Email Address</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Father's / Husband's Name (written on CNIC)</h5>
-          </div>
-          <p class="mb-1">Father's / Husband's Name (written on CNIC)</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Gender</h5>
-          </div>
-          <p class="mb-1">gender</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Marital Status</h5>
-          </div>
-          <p class="mb-1">Marital Status</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Date of Birth</h5>
-          </div>
-          <p class="mb-1">Date of Birth</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Religion</h5>
-          </div>
-          <p class="mb-1">Religion</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Are you a Government Servant?</h5>
-          </div>
-          <p class="mb-1">Are you a Government Servant?</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Do you have any Disability?</h5>
-          </div>
-          <p class="mb-1">Do you have any Disability?</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Domicile District</h5>
-          </div>
-          <p class="mb-1">Domicile District</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Domicile Province</h5>
-          </div>
-          <p class="mb-1">Domicile Province</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Postal Address</h5>
-          </div>
-          <p class="mb-1">Postal Address</p>
-        </li>
-        <li class="list-group-item">
-          {% comment %} <button class="btn btn-primary">Edit Section</button> {% endcomment %}
-          <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-profile-personal-info' %}'">Edit Section</button>
-
+          <button class="btn btn-primary" onclick="window.location.href=''">Edit Section</button>
         </li>
       </ul>
     </div>
-    
+  </div>
+</div>
 
     {% comment %} address info {% endcomment %}
-    <div class="mb-3">
-      <ul class="list-group">
-        <li class="list-group-item active">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1 text-white">Address Information</h5>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Domicile District</h5>
-          </div>
-          <p class="mb-1">Domicile District</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Domicile Taluka / Tehsil</h5>
-          </div>
-          <p class="mb-1">Domicile Taluka / Tehsil</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Union Council / Town Committee</h5>
-          </div>
-          <p class="mb-1">Union Council / Town Committee</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Domicile No.</h5>
-          </div>
-          <p class="mb-1">Domicile No.</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">PRC-D No.</h5>
-          </div>
-          <p class="mb-1">PRC-D No</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Domicile Issuance Date</h5>
-          </div>
-          <p class="mb-1">Domicile Issuance Date</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">PRC-D Issuance Date</h5>
-          </div>
-          <p class="mb-1">PRC-D Issuance Date</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Domicile Urban / Rural</h5>
-          </div>
-          <p class="mb-1">Domicile Urban / Rural</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Domicile Original / Duplicate</h5>
-          </div>
-          <p class="mb-1">Domicile Original / Duplicate</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Current Address</h5>
-          </div>
-          <p class="mb-1">Current Address</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Postal Address</h5>
-          </div>
-          <p class="mb-1">Postal Address</p>
-        </li>
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Permanent Address</h5>
-          </div>
-          <p class="mb-1">Permanent Address</p>
-        </li>
-        <li class="list-group-item">
-          {% comment %} <button class="btn btn-primary">Edit Section</button> {% endcomment %}
-          <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-profile-address' %}'">Edit Section</button>
-
-        </li>
-      </ul>
-    </div>
-{% comment %} acadmic info     {% endcomment %}
+<div class="mb-3">
+  <ul class="list-group">
+    <li class="list-group-item active">
+      <div class="d-flex justify-content-between w-100">
+        <h5 class="mb-1 text-white">Address Information</h5>
+      </div>
+    </li>
+    {% for key, value in address_info.items %}
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between w-100">
+        <h5 class="mb-1">{{ key|title }}</h5>
+      </div>
+      <p class="mb-1">{{ value }}</p>
+    </li>
+    {% endfor %}
+    <li class="list-group-item">
+      <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-profile-address' %}'">Edit Section</button>
+    </li>
+  </ul>
+</div>
+{% comment %} Academic Information {% endcomment %}
 <div class="mb-3">
   <ul class="list-group">
     <li class="list-group-item active">
@@ -255,47 +109,31 @@
         <h5 class="mb-1 text-white">Academic Information</h5>
       </div>
     </li>
+    {% for academic_info in academic_info_list %}
     <li class="list-group-item">
       <div class="d-flex justify-content-between w-100">
-        <h5 class="mb-1">Degree title: Bachelor of Science</h5>
+        <h5 class="mb-1">Degree title: {{ academic_info.degree_title }}</h5>
       </div>
-      <p>Degree: B.Sc.</p>
-      <p>Duration: 4 years</p>
-      <p>Passing Year: 2022</p>
-      <p>Marks Type: CGPA</p>
-      <p>Obtained Marks: 3.8</p>
-      <p>Total Marks: 4.0</p>
-      <p>Percentage: 95%</p>
-      <p>Board / Institute: ABC Board</p>
-      <p>Subjects: Physics, Mathematics</p>
+      <p>Degree: {{ academic_info.degree }}</p>
+      <p>Duration: {{ academic_info.duration }}</p>
+      <p>Passing Year: {{ academic_info.passing_year }}</p>
+      <p>Marks Type: {{ academic_info.marks_type }}</p>
+      <p>Obtained Marks: {{ academic_info.obtained_marks }}</p>
+      <p>Total Marks: {{ academic_info.total_marks }}</p>
+      <p>Percentage: {{ academic_info.percentage }}</p>
+      <p>Board / Institute: {{ academic_info.board_institute }}</p>
+      <p>Subjects: {{ academic_info.subjects }}</p>
       {% comment %} <button class="btn btn-primary">Update</button> {% endcomment %}
       <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-profile-academic' %}'">Update</button>
-
     </li>
-    <li class="list-group-item">
-      <div class="d-flex justify-content-between w-100">
-        <h5 class="mb-1">Degree title: Master of Arts</h5>
-      </div>
-      <p>Degree: M.A.</p>
-      <p>Duration: 2 years</p>
-      <p>Passing Year: 2024</p>
-      <p>Marks Type: Percentage</p>
-      <p>Obtained Marks: 85%</p>
-      <p>Total Marks: 100%</p>
-      <p>Board / Institute: XYZ Institute</p>
-      <p>Subjects: English Literature</p>
-      {% comment %} <button class="btn btn-primary">Update</button> {% endcomment %}
-      <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-profile-academic' %}'">Update</button>
-
-    </li>
+    {% endfor %}
     <li class="list-group-item">
       {% comment %} <button class="btn btn-primary">Add Education</button> {% endcomment %}
       <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-profile-academic' %}'">Add Education</button>
-
     </li>
   </ul>
 </div>
-{% comment %} experience info  {% endcomment %}
+{% comment %} Experience info {% endcomment %}
 <div class="mb-3">
   <ul class="list-group">
     <li class="list-group-item active">
@@ -303,39 +141,27 @@
         <h5 class="mb-1 text-white">Employment Information</h5>
       </div>
     </li>
+    {% for employment in employment_info %}
     <li class="list-group-item">
       <div class="d-flex justify-content-between w-100">
-        <h5 class="mb-1">Organization: ABC Company</h5>
+        <h5 class="mb-1">Organization: {{ employment.organization_name }}</h5>
       </div>
-      <p>Designation: Software Engineer</p>
-      <p>Start Date: 2019-01-01</p>
-      <p>End Date: 2021-12-31</p>
-      {% comment %} <button class="btn btn-primary">Update</button> {% endcomment %}
+      <p>Designation: {{ employment.designation }}</p>
+      <p>Start Date: {{ employment.start_date }}</p>
+      <p>End Date: {{ employment.end_date }}</p>
       <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-profile-employment' %}'">Update</button>
-
     </li>
+    {% empty %}
     <li class="list-group-item">
-      <div class="d-flex justify-content-between w-100">
-        <h5 class="mb-1">Organization: XYZ Corporation</h5>
-      </div>
-      <p>Designation: Project Manager</p>
-      <p>Start Date: 2022-01-01</p>
-      <p>End Date: 2023-12-31</p>
-      {% comment %} <button class="btn btn-primary">Update</button> {% endcomment %}
-      <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-profile-employment' %}'">Update</button>
-
+      No employment information available.
     </li>
+    {% endfor %}
     <li class="list-group-item">
-      {% comment %} <button class="btn btn-primary">Add Experience</button> {% endcomment %}
       <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-profile-employment' %}'">Add Experience</button>
-
-
     </li>
   </ul>
 </div>
-
-
-{% comment %}     
+{% comment %}
     {% include 'address_info_template.html' %}
 
     {% include 'academic_info_template.html' %}
@@ -388,7 +214,7 @@
         </li>
       </ul>
     </div>
-    
+
   </div>
 
   {% comment %} <div class="col-md-3">
@@ -408,7 +234,7 @@
   </div> {% endcomment %}
   <div class="col-md-3">
     <div class="card mb-3 p-2">
-      
+
       <div class="image-upload-container">
         <h6>Passport Size Photo</h6>
         <img id="passport_photo_preview" style="display: none;" alt="Passport Size Photo">
@@ -417,7 +243,7 @@
       </div>
     </div>
 <div class="card mb-3 p-2">
-     
+
       <div class="image-upload-container">
         <h6>CNIC Front Side</h6>
         <img id="cnic_front_preview" style="display: none;" alt="CNIC Front Side">
@@ -426,7 +252,7 @@
       </div>
     </div>
 <div class="card mb-3 p-2">
-     
+
       <div class="image-upload-container">
         <h6>CNIC Back Side</h6>
         <img id="cnic_back_preview" style="display: none;" alt="CNIC Back Side">
@@ -435,52 +261,52 @@
       </div>
     </div>
   </div>
-  
+
   <style>
   .image-upload-container {
     position: relative;
     width: auto; /* Adjust width as needed */
     height: auto; /* Adjust height as needed */
   }
-  
+
   .image-upload-container img {
     max-width: 100%;
     max-height: 100%;
   }
   </style>
-  
-  
+
+
   <script>
     function handleFileInput(inputId, previewId) {
       const input = document.getElementById(inputId);
       const preview = document.getElementById(previewId);
       const file = input.files[0];
       const reader = new FileReader();
-  
+
       reader.onload = function() {
-       
+
         preview.src = reader.result;
         preview.style.display = 'block'; // Show the uploaded image
       };
-  
+
       if (file) {
         reader.readAsDataURL(file);
       }
     }
-  
+
     document.getElementById('passport_photo_input').addEventListener('change', function() {
       handleFileInput('passport_photo_input', 'passport_photo_preview');
     });
-  
+
     document.getElementById('cnic_front_input').addEventListener('change', function() {
       handleFileInput('cnic_front_input', 'cnic_front_preview');
     });
-  
+
     document.getElementById('cnic_back_input').addEventListener('change', function() {
       handleFileInput('cnic_back_input', 'cnic_back_preview');
     });
   </script>
-  
+
 </div>
 
 
