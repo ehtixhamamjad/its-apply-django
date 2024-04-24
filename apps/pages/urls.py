@@ -2,7 +2,7 @@ from django.urls import path
 from .views import PagesView
 from .views_misc import MiscPagesView
 from django.contrib.auth.decorators import login_required
-from .views import add_license,userInfo,Employment,create_Address_Info,education_create
+from .views import add_license,userInfo,Employment,create_Address_Info,education_create,add_Project_Application,view_post
 
 urlpatterns = [
     path(
@@ -40,6 +40,7 @@ urlpatterns = [
       path('pages/profile/employment/add/', login_required(Employment), name='Employment'),
        path('pages/profile/address/add/', create_Address_Info, name='create_address_info'),
        path('pages/profile/academic/add/', education_create, name='education_create'),
+
     path(
         "pages/account_settings/account/",
         login_required(PagesView.as_view(template_name="pages_account_settings_account.html")),
@@ -86,11 +87,17 @@ urlpatterns = [
         login_required(PagesView.as_view(template_name="pages_print_slip.html")),
         name="pages-print-slip",
     ),
-     path(
+    #  path(
+    #     "pages/view_post/",
+    #     view_post,
+    #     name="pages-view-post",
+    # ),
+path(
         "pages/view_post/",
         login_required(PagesView.as_view(template_name="pages_view_post.html")),
         name="pages-view-post",
     ),
+    #  path('pages/view_post/',view_post, name='pages-view-post'),
     path(
         "pages/pages_apply_progress_form/",
         login_required(PagesView.as_view(template_name="pages_apply_progress_form.html")),
@@ -126,6 +133,9 @@ urlpatterns = [
         login_required(PagesView.as_view(template_name="pages_student.html")),
         name="pages-student",
     ),
+
+     path('pages/pages_student/add/', add_Project_Application, name='Project_Application'),
+     
     path(
         "pages/misc/error/",
         MiscPagesView.as_view(template_name="pages_misc_error.html"),

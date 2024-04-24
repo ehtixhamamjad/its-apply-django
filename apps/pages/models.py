@@ -2,6 +2,12 @@ from django.db import models
 from django import forms
 from django.views.generic import TemplateView
 
+class Project_Application(models.Model):
+  apply_for = models.CharField(max_length=255, blank=True)  # Optional field
+  project_title = models.CharField(max_length=255)
+  last_date = models.DateField()
+
+
 class License_data(models.Model):
     license_type = models.CharField(max_length=100)
     license_number = models.CharField(max_length=100)

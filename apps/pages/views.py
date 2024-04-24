@@ -1,13 +1,45 @@
 from django.views.generic import TemplateView
 from web_project import TemplateLayout
 from django.db import models
-from .models import License_data,Profile,Employment_Information,Address_Info,Academic_Information
+from .models import License_data,Profile,Employment_Information,Address_Info,Academic_Information,Project_Application
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import get_object_or_404
 # from .models import Employment
+
+def view_post(request):
+  applications =Project_Application.objects.all()  # Fetch all applications
+#   applications = Project_Application.objects.raw("SELECT * FROM pages_project_application")
+  print(applications)
+  context = {'applications': applications}  # Add applications to context
+  return render(request, 'pages_view_post.html', context)
+
+def add_Project_Application(request):
+  if request.method == 'POST':
+    # Extract data from POST request
+    project_title = request.POST.get('project_title')
+    apply_for = request.POST.get('apply_for', '')  # Handle optional field
+    last_date = request.POST.get('last_date')
+
+    # Create a new ProjectApplication object and save it to the database
+    new_application = Project_Application(
+        project_title=project_title,
+        apply_for=apply_for,
+        last_date=last_date,
+    )
+    new_application.save()
+
+    # Handle successful application (e.g., confirmation message)
+    return HttpResponse('post added successfully')  # Replace with your success template
+
+  else:
+    # Render the application form
+    return render(request, 'pages_student.html')
+
+
+#------------------zain--------------------------
 
 def get_employment(request):
     if request.method == 'GET':
@@ -181,12 +213,22 @@ This file is a view controller for multiple pages as a module.
 Here you can override the page view layout.
 Refer to pages/urls.py file for more pages.
 """
+# class PagesView(TemplateView):
+#     # Predefined function
+#     def get_context_data(self, **kwargs):
+#         # A function to init the global layout. It is defined in web_project/__init__.py file
+#         context = TemplateLayout.init(self, super().get_context_data(**kwargs))
+
+#         return context
 class PagesView(TemplateView):
     # Predefined function
     def get_context_data(self, **kwargs):
-        # A function to init the global layout. It is defined in web_project/__init__.py file
         context = TemplateLayout.init(self, super().get_context_data(**kwargs))
 
+        # Add view_post functionality
+        applications = Project_Application.objects.all()  # Fetch all applications
+
+        context['applications'] = applications
         return context
 
 def userInfo(request):

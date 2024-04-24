@@ -3,12 +3,56 @@
 {% load static %}
 {% load i18n %}
 
+{% block title %}Apply for Project{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <h1>Apply for Project</h1>
+  <form method="POST" action="{% url 'Project_Application' %}">
+    {% csrf_token %} {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+
+    <div class="mb-3">
+      <label for="apply_for" class="form-label">Apply for</label>
+      <input type="text" class="form-control" id="apply_for" name="apply_for" placeholder="e.g Internship">
+    </div>
+
+    <div class="mb-3">
+      <label for="project_title" class="form-label">Project Title:</label>
+      <input type="text" class="form-control" id="project_title" name="project_title" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="last_date" class="form-label">Last Date to Apply:</label>
+      <input type="date" class="form-control" id="last_date" name="last_date" required>
+      <small class="text-muted">Please use YYYY-MM-DD format.</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">add post</button>
+  </form>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends layout_path %}
+
+{% load static %}
+{% load i18n %}
+
 {% block title %}student page{% endblock %}
 
-{% comment %} {% block page_css %}
-{{ block.super }}
-<link rel="stylesheet" href="{% static 'vendor/css/pages/profile.css' %}" />
-{% endblock page_css %} {% endcomment %}
 
 {% block content %}
 
@@ -51,4 +95,4 @@
   </div>
 
 
-{% endblock %}
+{% endblock %} {% endcomment %}
