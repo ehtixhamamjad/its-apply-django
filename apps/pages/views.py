@@ -9,6 +9,7 @@ from django.http import JsonResponse, HttpResponse
 from django.shortcuts import get_object_or_404
 # from .models import Employment
 
+<<<<<<< Updated upstream
 def view_post(request):
   applications =Project_Application.objects.all()  # Fetch all applications
 #   applications = Project_Application.objects.raw("SELECT * FROM pages_project_application")
@@ -40,36 +41,19 @@ def add_Project_Application(request):
 
 
 #------------------zain--------------------------
+=======
+>>>>>>> Stashed changes
 
 def get_employment(request):
-    if request.method == 'GET':
-        # Retrieve session ID from request
-        session_Id = request.GET.get('user_id')
 
-        if not session_Id:
-            return JsonResponse({'error': 'No session ID provided'}, status=400)
+        employment_data = Employment_Information.objects.raw("SELECT * FROM pages_employment_information")
+        employment_info= {'employment_data': employment_data}
+        return render(request, 'Employee.html',employment_info)
 
-        # Retrieve employment information associated with session ID
-        employment_info = Employment_Information.objects.filter(session_id=session_Id).first()
 
-        # Check if employment information exists for the provided session ID
-        if employment_info:
-            # Serialize employment information into JSON format
-            employment_data = {
-                'organization_name': employment_info.organization_name,
-                'designation': employment_info.designation,
-                'start_date': employment_info.start_date.strftime('%Y-%m-%d') if employment_info.start_date else None,  # Assuming start_date is a DateField
-                'end_date': employment_info.end_date.strftime('%Y-%m-%d') if employment_info.end_date else None,  # Assuming end_date is a DateField
-            }
-
-            return render(request, 'pages_profile_user.html', {'employment_info': employment_data})
-        else:
-            return JsonResponse({'error': 'No employment information found for the provided session ID'}, status=404)
-    else:
-        return JsonResponse({'error': 'Invalid request method'}, status=405)
 #  for get value of emplyeement
 def get_Address_Info(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
         # Retrieve session ID from request
         session_id = request.GET.get('user_id')
 
@@ -147,7 +131,8 @@ def get_education_data(request):
                 'board_institute': education_data.board_institute,
                 'subjects': education_data.subjects
             }
-            return JsonResponse({'education_info': education_info})
+            # return JsonResponse({'education_info': education_info})
+            return render(request, 'pages_profile_user.html', {'education_info': education_info})
         else:
             return JsonResponse({'error': 'No education information found for the provided session ID'}, status=404)
     else:
@@ -227,10 +212,32 @@ class PagesView(TemplateView):
 
         # Add view_post functionality
         applications = Project_Application.objects.all()  # Fetch all applications
-
         context['applications'] = applications
-        return context
 
+        # Check if user is authenticated and get session ID
+        if self.request.user.is_authenticated:
+            session_id = self.request.session['user_id']
+
+            # Fetch employment information based on session ID
+            try:
+                employment_info = Employment_Information.objects.get(id=session_id)
+                context['employment_info'] = [employment_info]
+            except Employment_Information.DoesNotExist:
+                context['employment_info'] = None
+            try:
+                # Fetch address information based on session ID
+                address_info = Address_Info.objects.get(id=session_id)
+                context['address_info'] = address_info
+            except Address_Info.DoesNotExist:
+                context['address_info'] = None
+            try:
+                # Fetch address information based on session ID
+                Profile_info = Profile.objects.get(id=session_id)
+                context['Profile_info'] = Profile_info
+            except Profile_info.DoesNotExist:
+                context['Profile_info'] = None
+        return context
+    
 def userInfo(request):
     if request.method == 'POST':
         username = request.POST.get('username')

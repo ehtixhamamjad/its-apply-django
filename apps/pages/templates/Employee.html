@@ -55,11 +55,6 @@
   </ul>
   <br>
 </div>
-<<<<<<< Updated upstream
-
-=======
-  {% comment %} Personal Information {% endcomment %}
->>>>>>> Stashed changes
 <div class="mt-3 d-flex gap-2 parent">
   <div class="col-md-9">
     <div class="mb-3">
@@ -69,121 +64,22 @@
             <h5 class="mb-1 text-white">Personal Information</h5>
           </div>
         </li>
-
-        <div class="mt-3 d-flex gap-2 parent">
-          <div class="col-md-9">
-            <div class="mb-3">
-              <ul class="list-group">
-                <li class="list-group-item active">
-                  <div class="d-flex justify-content-between w-100">
-                    <h5 class="mb-1 text-white">Profile Information</h5>
-                  </div>
-                  {% comment %}  {% endcomment %}
-                </li>
-                <li class="list-group-item">
-                  <strong>Full Name:</strong> {{ Profile_info.full_name }}
-                </li>
-                <li class="list-group-item">
-                  <strong>CNIC:</strong> {{ Profile_info.cnic }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Mobile Number:</strong> {{ Profile_info.mobile_number }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Email:</strong> {{ Profile_info.email }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Father/Husband Name:</strong> {{ Profile_info.father_or_husband_name }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Gender:</strong> {{ Profile_info.get_gender_display }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Marital Status:</strong> {{ Profile_info.get_marital_status_display }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Date of Birth:</strong> {{ Profile_info.date_of_birth }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Religion:</strong> {{ Profile_info.religion }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Government Servant:</strong> {{ Profile_info.is_government_servant }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Has Disability:</strong> {{ Profile_info.has_disability }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Domicile District:</strong> {{ profile.domicile_district }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Domicile Province:</strong> {{ Profile_info.domicile_province }}
-                </li>
-                <li class="list-group-item">
-                  <strong>Postal Address:</strong> {{ Profile_info.postal_address }}
-                </li>
-                <li class="list-group-item">
-                  <button class="btn btn-primary" onclick="window.location.href='#'">Edit Profile</button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-    {% comment %} address info {% endcomment %}
-    <div class="mb-3">
-      <ul class="list-group">
-        <li class="list-group-item active">
+        {% for field, value in user_info.items %}
+        <li class="list-group-item">
           <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1 text-white">Address Information</h5>
+            <h5 class="mb-1">{{ field|title }}</h5>
           </div>
+          <p class="mb-1">{{ value }}</p>
         </li>
+        {% endfor %}
         <li class="list-group-item">
-          <strong>Domicile District:</strong> {{ address_info.domicile_district }}
-        </li>
-        <li class="list-group-item">
-          <strong>Domicile Taluka:</strong> {{ address_info.domicile_taluka }}
-        </li>
-        <li class="list-group-item">
-          <strong>Union Council:</strong> {{ address_info.union_council }}
-        </li>
-        <li class="list-group-item">
-          <strong>Domicile No:</strong> {{ address_info.domicile_no }}
-        </li>
-        <li class="list-group-item">
-          <strong>PRC D No:</strong> {{ address_info.prc_d_no }}
-        </li>
-        <li class="list-group-item">
-          <strong>Domicile Issuance Date:</strong> {{ address_info.domicile_issuance_date }}
-        </li>
-        <li class="list-group-item">
-          <strong>PRC D Issuance Date:</strong> {{ address_info.prc_d_issuance_date }}
-        </li>
-        <li class="list-group-item">
-          <strong>Domicile Urban/Rural:</strong> {{ address_info.get_domicile_urban_rural_display }}
-        </li>
-        <li class="list-group-item">
-          <strong>Domicile Original/Duplicate:</strong> {{ address_info.get_domicile_original_duplicate_display }}
-        </li>
-        <li class="list-group-item">
-          <strong>Current Address:</strong> {{ address_info.current_address }}
-        </li>
-        <li class="list-group-item">
-          <strong>Postal Address:</strong> {{ address_info.postal_address }}
-        </li>
-        <li class="list-group-item">
-          <strong>Permanent Address:</strong> {{ address_info.permanent_address }}
+          <button class="btn btn-primary" onclick="window.location.href=''">Edit Section</button>
         </li>
       </ul>
     </div>
-<<<<<<< Updated upstream
- 
-=======
+  </div>
+</div>
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     {% comment %} address info {% endcomment %}
 <div class="mb-3">
   <ul class="list-group">
@@ -213,7 +109,7 @@
         <h5 class="mb-1 text-white">Academic Information</h5>
       </div>
     </li>
-    {% for academic_info in education_info %}
+    {% for academic_info in academic_info_list %}
     <li class="list-group-item">
       <div class="d-flex justify-content-between w-100">
         <h5 class="mb-1">Degree title: {{ academic_info.degree_title }}</h5>
@@ -277,7 +173,6 @@
             </li>
         {% endfor %}
     </ul>
->>>>>>> Stashed changes
 {% comment %}
     {% include 'address_info_template.html' %}
 
@@ -285,39 +180,11 @@
     {% include 'experience_info_template.html' %} {% endcomment %}
 
     <!-- Button -->
-     <button class="btn btn-primary mb-2">
+    {% comment %} <button class="btn btn-primary mb-2">
       Click here to Add / View License Information
-    </button>
-    {% comment %} <button class="btn btn-primary mb-2" onclick="window.location.href='{% url 'pages-profile-license-Info' %}'">Click here to Add / View License Information</button> {% endcomment %}
+    </button> {% endcomment %}
+    <button class="btn btn-primary mb-2" onclick="window.location.href='{% url 'pages-profile-license-Info' %}'">Click here to Add / View License Information</button>
 
-
-    <div class="mb-3">
-      <ul class="list-group">
-        <li class="list-group-item active">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1 text-white">Employment Information</h5>
-          </div>
-        </li>
-        {% for employment in employment_info %}
-        <li class="list-group-item">
-          <div class="d-flex justify-content-between w-100">
-            <h5 class="mb-1">Organization: {{ employment.organization_name }}</h5>
-          </div>
-          <p>Designation: {{ employment.designation }}</p>
-          <p>Start Date: {{ employment.start_date }}</p>
-          <p>End Date: {{ employment.end_date }}</p>
-          <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-profile-employment' %}'">Update</button>
-        </li>
-        {% empty %}
-        <li class="list-group-item">
-          No employment information available.
-        </li>
-        {% endfor %}
-        <li class="list-group-item">
-          <button class="btn btn-primary" onclick="window.location.href='{% url 'pages-profile-employment' %}'">Add Experience</button>
-        </li>
-      </ul>
-    </div>
 
     <!-- License Info -->
     {% comment %} {% include 'license_info_template.html' %} {% endcomment %}

@@ -5,6 +5,7 @@ from django.contrib import messages
 from auth.views import AuthView
 from django.contrib.auth import get_user_model
 
+
 User = get_user_model()
 
 class LoginView(AuthView):
@@ -36,7 +37,10 @@ class LoginView(AuthView):
 
                 # Add user's ID to session
                 request.session['user_id'] = authenticated_user.id
-
+               
+                session_id=request.session['user_id']
+                print(session_id)
+                print(request.session['user_id'])
                 # Redirect to the page the user was trying to access before logging in
                 if "next" in request.POST:
                     return redirect(request.POST["next"])
