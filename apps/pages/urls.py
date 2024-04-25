@@ -2,11 +2,8 @@ from django.urls import path
 from .views import PagesView
 from .views_misc import MiscPagesView
 from django.contrib.auth.decorators import login_required
-<<<<<<< Updated upstream
-from .views import add_license,userInfo,Employment,create_Address_Info,education_create,add_Project_Application,view_post
-=======
-from .views import add_license,userInfo,Employment,create_Address_Info,education_create,get_employment,get_education_data
->>>>>>> Stashed changes
+from .views import add_license,userInfo,Employment,create_Address_Info,education_create,get_employment,get_education_data,add_Project_Application
+
 
 urlpatterns = [
     path(
@@ -45,13 +42,10 @@ urlpatterns = [
       path('pages/profile/employment/add/', login_required(Employment), name='Employment'),
        path('pages/profile/address/add/', create_Address_Info, name='create_address_info'),
        path('pages/profile/academic/add/', education_create, name='education_create'),
-<<<<<<< Updated upstream
-    #    path('pages/profile/user/', education_create, name='education_create'),
 
-=======
        path('pages/profile/user', get_employment, name='get_employment'),
        path('pages/profile/employee', get_education_data, name='get_education_data'),
->>>>>>> Stashed changes
+
     path(
         "pages/account_settings/account/",
         login_required(PagesView.as_view(template_name="pages_account_settings_account.html")),

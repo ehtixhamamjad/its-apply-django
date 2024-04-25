@@ -9,7 +9,6 @@ from django.http import JsonResponse, HttpResponse
 from django.shortcuts import get_object_or_404
 # from .models import Employment
 
-<<<<<<< Updated upstream
 def view_post(request):
   applications =Project_Application.objects.all()  # Fetch all applications
 #   applications = Project_Application.objects.raw("SELECT * FROM pages_project_application")
@@ -41,8 +40,7 @@ def add_Project_Application(request):
 
 
 #------------------zain--------------------------
-=======
->>>>>>> Stashed changes
+
 
 def get_employment(request):
 
@@ -236,8 +234,14 @@ class PagesView(TemplateView):
                 context['Profile_info'] = Profile_info
             except Profile_info.DoesNotExist:
                 context['Profile_info'] = None
-        return context
-    
+            try:
+                # Fetch address information based on session ID
+                education_info = Academic_Information.objects.get(id=session_id)
+                context['education_info'] = [education_info]  # Wrap education_info in a list
+            except Academic_Information.DoesNotExist:
+                context['education_info'] = None  # Set education_info to None if the object doesn't exist
+            return context
+
 def userInfo(request):
     if request.method == 'POST':
         username = request.POST.get('username')
