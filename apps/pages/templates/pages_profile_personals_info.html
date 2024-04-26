@@ -14,7 +14,83 @@
         <h5 class="mb-0 text-white">Personal Information</h5>
       </div>
       <div class="card-body mb-2">
-        <form method="post" action="{% url 'userInfo' %}">
+        {% for profile_info in profile_info %}
+      <form method="post" action="{% url 'edit_user' profile_info.id %}">
+          {% csrf_token %}
+          <h1>value ha</h1>
+          <div class="mb-3 mt-2">
+              <label class="form-label" for="basic-default-fullname">Full Name</label>
+              <input type="text" name="username" class="form-control" id="basic-default-fullname" placeholder="John Doe" value="{{ profile_info.full_name }}" />
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="basic-default-cnic">CNIC</label>
+              <input type="text" name="cnic" class="form-control" id="basic-default-cnic" placeholder="XXXXX-XXXXXXX-X" value="{{ profile_info.cnic }}" />
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="basic-default-mobile">Mobile Number</label>
+              <input type="text" name="phonenum" class="form-control" id="basic-default-mobile" placeholder="03XX-XXXXXXX" value="{{ profile_info.mobile_number }}" />
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="basic-default-email">Email Address</label>
+              <input type="email" name="email" class="form-control" id="basic-default-email" placeholder="john.doe@example.com" value="{{ profile_info.email }}" />
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="basic-default-fathername">Father's / Husband's Name</label>
+              <input type="text" name="fname" class="form-control" id="basic-default-fathername" placeholder="Father's / Husband's Name" value="{{ profile_info.father_or_husband_name}}" />
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="basic-default-gender">Gender</label>
+              <select class="form-select" value="{{ profile_info.gender}}" name="gender" id="basic-default-gender">
+                  <option value="male" {% if profile_info.gender == 'male' %}selected{% endif %}>Male</option>
+                  <option value="female" {% if profile_info.gender == 'female' %}selected{% endif %}>Female</option>
+                  <option value="other" {% if profile_info.gender == 'other' %}selected{% endif %}>Other</option>
+              </select>
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="basic-default-marital-status">Marital Status</label>
+              <select class="form-select" name="status"  id="basic-default-marital-status">
+                  <option value="single" {% if profile_info.marital_status == 'single' %}selected{% endif %}>Single</option>
+                  <option value="married" {% if profile_info.marital_status == 'married' %}selected{% endif %}>Married</option>
+                  <option value="divorced" {% if profile_info.marital_status == 'divorced' %}selected{% endif %}>Divorced</option>
+                  <option value="widowed" {% if profile_info.marital_status == 'widowed' %}selected{% endif %}>Widowed</option>
+              </select>
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="basic-default-dob">Date of Birth</label>
+              <input type="date" name="dob" class="form-control" id="basic-default-dob" value="{{ profile_info.date_of_birth|date:'Y-m-d' }}" />
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="basic-default-religion">Religion</label>
+              <input type="text" name="religion" class="form-control" id="basic-default-religion" placeholder="Religion" value="{{ profile_info.religion }}" />
+          </div>
+          <div class="mb-3 form-check">
+              <input type="checkbox" name="govt" class="form-check-input" id="basic-default-gov-servant" {% if profile_info.is_government_servant %}checked{% endif %} />
+              <label class="form-check-label"  for="basic-default-gov-servant">Are you a Government Servant?</label>
+          </div>
+          <div class="mb-3 form-check">
+              <input type="checkbox" name="dis" class="form-check-input" id="basic-default-disability" {% if profile_info.has_disability %}checked{% endif %} />
+              <label class="form-check-label" name="dis" for="basic-default-disability">Do you have any Disability?</label>
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="basic-default-district">Domicile District</label>
+              <input type="text" name="dom" class="form-control" id="basic-default-district" placeholder="Domicile District" value="{{ profile_info.domicile_district}}" />
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="basic-default-province">Domicile Province</label>
+              <input type="text" class="form-control" id="basic-default-province" placeholder="Domicile Province" value="{{ profile_info.domicile_province }}" />
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="basic-default-address">Postal Address</label>
+              <textarea class="form-control" name="post" id="basic-default-address" rows="3" placeholder="Postal Address">{{ profile_info.postal_address }}</textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send</button>
+          <button type="button" class="btn btn-dark" onclick="window.location.href='{% url 'pages-profile-user' %}'">Back to Profile</button>
+      </form>
+
+
+        {% empty %}
+
+          <form method="post" action="{% url 'userInfo' %}">
             {% csrf_token %}
            <div class="mb-3 mt-2">
             <label class="form-label" for="basic-default-fullname">Full Name</label>
@@ -84,8 +160,7 @@
           <button type="submit" class="btn btn-primary">Send</button>
           <button type="button" class="btn btn-dark" onclick="window.location.href='{% url 'pages-profile-user' %}'">Back to Profile</button>
 
-
-        </form>
+        </form> {% endfor %}
       </div>
     </div>
   </div>

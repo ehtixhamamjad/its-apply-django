@@ -3,7 +3,7 @@ from web_project import TemplateLayout
 from django.db import models
 from .models import License_data,Profile,Employment_Information,Address_Info,Academic_Information,Project_Application
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import get_object_or_404
@@ -63,6 +63,30 @@ def Employment(request):
     else:
         return render(request, 'add_license.html')
 
+def edit_employment(request, employment_id):
+    # Get the Employment Information object or return a 404 error if it doesn't exist
+    employment_info = get_object_or_404(Employment_Information, id=employment_id)
+
+    if request.method == 'POST':
+        # Extract data from POST request
+        organization = request.POST.get('organization')
+        designation = request.POST.get('designation')
+        start_date = request.POST.get('start_date')
+        end_date = request.POST.get('end_date')
+
+        # Update the employment information object
+        employment_info.organization_name = organization
+        employment_info.designation = designation
+        employment_info.start_date = start_date
+        employment_info.end_date = end_date
+        employment_info.save()
+
+        return HttpResponse('Employment information updated successfully')  # You can customize the response as needed
+    else:
+        return render(request, 'edit_employment.html', {'employment_info': employment_info})
+
+
+
 
 def add_license(request):
     if request.method == 'POST':
@@ -119,6 +143,34 @@ def create_Address_Info(request):
         return HttpResponse('Address added successfully')  # Replace 'profile_success' with your URL name
 
     return render(request, 'pages_profile_teams.html')
+def edit_address_info(request, address_info_id):
+    # Retrieve the existing address info object from the database
+    address_info = Address_Info.objects.get(pk=address_info_id)
+
+    if request.method == 'POST':
+        # Update the fields with the new values from the form
+        address_info.domicile_district = request.POST.get('domicile_district')
+        address_info.domicile_taluka = request.POST.get('domicile_taluka')
+        address_info.union_council = request.POST.get('union_council')
+        address_info.domicile_no = request.POST.get('domicile_no')
+        address_info.prc_d_no = request.POST.get('prc_d_no')
+        address_info.domicile_issuance_date = request.POST.get('domicile_issuance_date')
+        address_info.prc_d_issuance_date = request.POST.get('prc_d_issuance_date')
+        address_info.domicile_urban_rural = request.POST.get('domicile_urban_rural')
+        address_info.domicile_original_duplicate = request.POST.get('domicile_original_duplicate')
+        address_info.current_address = request.POST.get('current_address')
+        address_info.postal_address = request.POST.get('postal_address')
+        address_info.permanent_address = request.POST.get('permanent_address')
+
+        # Save the updated address info object
+        address_info.save()
+
+        # Redirect to a success page or do something else
+        return HttpResponse('Address info updated successfully')  # Replace with your URL or template name
+
+    # Render the edit form with the existing data
+    return render(request, 'edit_address_info.html', {'address_info': address_info})
+
 """
 This file is a view controller for multiple pages as a module.
 Here you can override the page view layout.
@@ -158,10 +210,10 @@ class PagesView(TemplateView):
                 context['address_info'] = None
             try:
                 # Fetch address information based on session ID
-                Profile_info = Profile.objects.get(id=session_id)
-                context['Profile_info'] = Profile_info
-            except Profile_info.DoesNotExist:
-                context['Profile_info'] = None
+                profile_info = Profile.objects.get(id=session_id)
+                context['profile_info'] = [profile_info]
+            except Profile.DoesNotExist:
+                context['profile_info'] = None
             try:
                 # Fetch address information based on session ID
                 education_info = Academic_Information.objects.get(id=session_id)
@@ -205,8 +257,60 @@ def userInfo(request):
             # Optionally, you can redirect to another page after form submission
             # return redirect('success_url')  # Replace with your success URL
         return HttpResponse('user added successfully')
+       # return render(request, "pages_profile_personals_info.html")
+def edit_user(request, profile_id):
+    # Get the Profile object to edit or return 404 if not found
+    profile_data = get_object_or_404(Profile, pk=profile_id)
 
-        # return render(request, "pages_profile_personals_info.html")
+    if request.method == 'POST':
+        # Get form data
+        username = request.POST.get('username')
+        cnic = request.POST.get('cnic')
+        phonenum = request.POST.get('phonenum')
+        email = request.POST.get('email')
+        fname = request.POST.get('fname')
+        gender = request.POST.get('gender')
+        status = request.POST.get('status')
+        religion = request.POST.get('religion')
+        govt = request.POST.get('govt')
+        dob = request.POST.get('dob')
+        dis = request.POST.get('dis')
+        dom = request.POST.get('dom')
+        post = request.POST.get('post')
+
+        # Perform validation
+        if username and cnic and phonenum and email and fname and gender and status and dob and religion and dom and post:
+            # Convert checkbox values to boolean
+            govt = govt == 'on'
+            dis = dis == 'on'
+
+            # Update Profile object
+            profile_data.full_name = username
+            profile_data.cnic = cnic
+            profile_data.mobile_number = phonenum
+            profile_data.email = email
+            profile_data.father_or_husband_name = fname
+            profile_data.gender = gender
+            profile_data.marital_status = status
+            profile_data.date_of_birth = dob
+            profile_data.religion = religion
+            profile_data.is_government_servant = govt
+            profile_data.has_disability = dis
+            profile_data.domicile_district = dom
+            profile_data.postal_address = post
+
+            # Save updated Profile data
+            profile_data.save()
+
+            # Redirect to success URL or return success message
+            # return redirect('success_url')  # Replace with your success URL
+            return HttpResponse('User information updated successfully')
+        else:
+            # Handle invalid form data
+            return HttpResponse('Please fill in all required fields')
+
+    # Render the edit form with existing profile data
+    return render(request, 'edit_user.html', {'profile_data': profile_data})
 
 def education_create(request):
     if request.method == 'POST':

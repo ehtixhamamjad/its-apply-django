@@ -13,6 +13,73 @@
     <div class="card mb-4">
       </div>
       <div class="card-body mb-2">
+        {% for employment in employment_info %}
+        <h1>add  ha data</h1>
+        <form method="post" action="{% url 'edit_employment' employment.id %}">
+          {% csrf_token %}
+          <div class="mb-3 mt-2">
+              <label for="organization" class="form-label">Organization</label>
+              <input type="text" value="{{ employment.organization_name }}" class="form-control" id="organization" name="organization" placeholder="ABC Company">
+          </div>
+          <div class="mb-3">
+              <label for="designation" class="form-label">Designation</label>
+              <input type="text" value="{{ employment.designation }}" class="form-control" id="designation" name="designation" placeholder="Software Engineer">
+          </div>
+          <div class="mb-3">
+              <label for="start_date" class="form-label">Start Date</label>
+              <input type="date" value="{{ employment.start_date|date:'Y-m-d'}}" class="form-control" id="start_date" name="start_date">
+          </div>
+          <div class="mb-3">
+              <label for="end_date" class="form-label">End Date</label>
+              <input type="date" value="{{ employment.end_date|date:'Y-m-d' }}" class="form-control" id="end_date" name="end_date">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-dark" onclick="window.location.href='{% url 'pages-profile-user' %}'">Back to Profile</button>
+
+      </form>
+      {% empty %}
+      <h1>nhi ha data</h1>
+      <form method="post" action="{% url 'Employment' %}">
+        {% csrf_token %}
+        <div class="mb-3 mt-2">
+            <label for="organization" class="form-label">Organization</label>
+            <input type="text" class="form-control" id="organization" name="organization" placeholder="ABC Company">
+        </div>
+        <div class="mb-3">
+            <label for="designation" class="form-label">Designation</label>
+            <input type="text" class="form-control" id="designation" name="designation" placeholder="Software Engineer">
+        </div>
+        <div class="mb-3">
+            <label for="start_date" class="form-label">Start Date</label>
+            <input type="date" class="form-control" id="start_date" name="start_date" value="2019-01-01">
+        </div>
+        <div class="mb-3">
+            <label for="end_date" class="form-label">End Date</label>
+            <input type="date" class="form-control" id="end_date" name="end_date" value="2021-12-31">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-dark" onclick="window.location.href='{% url 'pages-profile-user' %}'">Back to Profile</button>
+
+    </form>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% comment %} <div class="row">
+  <div class="col-xl">
+    <div class="card mb-4">
+      </div>
+      <div class="card-body mb-2">
         <form method="post" action="{% url 'Employment' %}">
           {% csrf_token %}
           <div class="mb-3 mt-2">
@@ -39,6 +106,6 @@
       </div>
     </div>
   </div>
-</div>
+</div> {% endcomment %}
 
 {% endblock %}
