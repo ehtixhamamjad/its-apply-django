@@ -2,7 +2,7 @@ from django.urls import path
 from .views import PagesView
 from .views_misc import MiscPagesView
 from django.contrib.auth.decorators import login_required
-from .views import add_license,userInfo,Employment,create_Address_Info,education_create,get_employment,get_education_data,add_Project_Application
+from .views import add_license,userInfo,Employment,create_Address_Info,education_create,add_Project_Application
 
 
 urlpatterns = [
@@ -37,14 +37,14 @@ urlpatterns = [
         login_required(PagesView.as_view(template_name="pages_profile_license_Info.html")),
         name="pages-profile-license-Info",
     ),
-      path('pages/profile/personal_info/add/', login_required(userInfo), name='userInfo'),
+
       path('pages/profile/license_Info/add/', login_required(add_license), name='add_license'),
       path('pages/profile/employment/add/', login_required(Employment), name='Employment'),
        path('pages/profile/address/add/', create_Address_Info, name='create_address_info'),
        path('pages/profile/academic/add/', education_create, name='education_create'),
+       path('pages/profile/user/add/', userInfo, name='userInfo'),
 
-       path('pages/profile/user', get_employment, name='get_employment'),
-       path('pages/profile/employee', get_education_data, name='get_education_data'),
+
 
     path(
         "pages/account_settings/account/",

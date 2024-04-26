@@ -42,48 +42,6 @@ def add_Project_Application(request):
 #------------------zain--------------------------
 
 
-def get_employment(request):
-
-        employment_data = Employment_Information.objects.raw("SELECT * FROM pages_employment_information")
-        employment_info= {'employment_data': employment_data}
-        return render(request, 'Employee.html',employment_info)
-
-
-#  for get value of emplyeement
-def get_Address_Info(request):
-    if request.method == 'POST':
-        # Retrieve session ID from request
-        session_id = request.GET.get('user_id')
-
-        if not session_id:
-            return JsonResponse({'error': 'No session ID provided'}, status=400)
-
-        # Retrieve address information associated with the session ID
-        address_info = Address_Info.objects.filter(session_id=session_id).first()
-
-        if address_info:
-            # Serialize address information into JSON format
-            address_data = {
-                'domicile_district': address_info.domicile_district,
-                'domicile_taluka': address_info.domicile_taluka,
-                'union_council': address_info.union_council,
-                'domicile_no': address_info.domicile_no,
-                'prc_d_no': address_info.prc_d_no,
-                'domicile_issuance_date': address_info.domicile_issuance_date.strftime('%Y-%m-%d') if address_info.domicile_issuance_date else None,
-                'prc_d_issuance_date': address_info.prc_d_issuance_date.strftime('%Y-%m-%d') if address_info.prc_d_issuance_date else None,
-                'domicile_urban_rural': address_info.domicile_urban_rural,
-                'domicile_original_duplicate': address_info.domicile_original_duplicate,
-                'current_address': address_info.current_address,
-                'postal_address': address_info.postal_address,
-                'permanent_address': address_info.permanent_address,
-            }
-
-            return render(request, 'pages_profile_user.html', {'address_info': address_data})
-        else:
-            return JsonResponse({'error': 'No address information found for the provided session ID'}, status=404)
-    else:
-        return JsonResponse({'error': 'Invalid request method'}, status=405)
-
 def Employment(request):
     if request.method == 'POST':
         # Extract data from POST request
@@ -104,37 +62,7 @@ def Employment(request):
         return HttpResponse('Employment added successfully') # You can customize the response as needed
     else:
         return render(request, 'add_license.html')
-def get_education_data(request):
-    if request.method == 'GET':
-        # Retrieve session ID from request
-        session_id = request.GET.get('session_id')
 
-        if not session_id:
-            return JsonResponse({'error': 'No session ID provided'}, status=400)
-
-        # Retrieve education information associated with session ID
-        education_data = Academic_Information.objects.filter(session_id=session_id).first()
-
-        if education_data:
-            # Prepare data to send as JSON response
-            education_info = {
-                'degree_title': education_data.degree_title,
-                'degree': education_data.degree,
-                'duration': education_data.duration,
-                'passing_year': education_data.passing_year,
-                'marks_type': education_data.marks_type,
-                'obtained_marks': education_data.obtained_marks,
-                'total_marks': education_data.total_marks,
-                'percentage': education_data.percentage,
-                'board_institute': education_data.board_institute,
-                'subjects': education_data.subjects
-            }
-            # return JsonResponse({'education_info': education_info})
-            return render(request, 'pages_profile_user.html', {'education_info': education_info})
-        else:
-            return JsonResponse({'error': 'No education information found for the provided session ID'}, status=404)
-    else:
-        return JsonResponse({'error': 'Invalid request method'}, status=405)
 
 def add_license(request):
     if request.method == 'POST':
@@ -279,41 +207,7 @@ def userInfo(request):
         return HttpResponse('user added successfully')
 
         # return render(request, "pages_profile_personals_info.html")
-def get_user_info(request):
-    if request.method == 'GET':
-        # Retrieve session ID from request
-        session_id = request.GET.get('session_id')
 
-        if not session_id:
-            return JsonResponse({'error': 'No session ID provided'}, status=400)
-
-        # Retrieve user information associated with session ID
-        user_info = Profile.objects.filter(session_id=session_id).first()
-
-        # Check if user information exists for the provided session ID
-        if user_info:
-            # Serialize user information into JSON format
-            user_data = {
-                'username': user_info.username,
-                'cnic': user_info.cnic,
-                'phonenum': user_info.phonenum,
-                'email': user_info.email,
-                'fname': user_info.fname,
-                'gender': user_info.gender,
-                'status': user_info.status,
-                'religion': user_info.religion,
-                'govt': user_info.govt,
-                'dob': user_info.dob,
-                'dis': user_info.dis,
-                'dom': user_info.dom,
-                'post': user_info.post,
-            }
-
-            return JsonResponse({'user_info': user_data})
-        else:
-            return JsonResponse({'error': 'No user information found for the provided session ID'}, status=404)
-    else:
-        return JsonResponse({'error': 'Invalid request method'}, status=405)
 def education_create(request):
     if request.method == 'POST':
         # Retrieve form data from request.POST

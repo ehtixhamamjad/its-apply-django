@@ -249,9 +249,9 @@
     {% include 'experience_info_template.html' %} {% endcomment %}
 
     <!-- Button -->
-     <button class="btn btn-primary mb-2">
+     {% comment %} <button class="btn btn-primary mb-2">
       Click here to Add / View License Information
-    </button>
+    </button> {% endcomment %}
     {% comment %} <button class="btn btn-primary mb-2" onclick="window.location.href='{% url 'pages-profile-license-Info' %}'">Click here to Add / View License Information</button> {% endcomment %}
 
 
@@ -319,6 +319,8 @@
       <img src="{% static 'images/cnic_back.jpg' %}" alt="CNIC Back Side">
     </div>
   </div> {% endcomment %}
+</div>
+
   <div class="col-md-3">
     <div class="card mb-3 p-2">
 
