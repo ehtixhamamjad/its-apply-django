@@ -2,7 +2,7 @@ from django.urls import path
 from .views import PagesView
 from .views_misc import MiscPagesView
 from django.contrib.auth.decorators import login_required
-from .views import add_license,userInfo,Employment,create_Address_Info,education_create,add_Project_Application,edit_employment, edit_user,edit_address_info
+from .views import add_license,userInfo,Employment,create_Address_Info,education_create,add_Project_Application,edit_employment, edit_user,edit_address_info,edit_academic_information
 
 
 urlpatterns = [
@@ -21,6 +21,11 @@ urlpatterns = [
         "pages/profile/academic/",
         login_required(PagesView.as_view(template_name="pages_profile_academic.html")),
         name="pages-profile-academic",
+    ),
+        path(
+        "pages/profile/academic-more/",
+        login_required(PagesView.as_view(template_name="pages_profile_academic_more.html")),
+        name="pages-profile-academic-more",
     ),
     path(
         "pages/profile/employment/",
@@ -46,6 +51,8 @@ urlpatterns = [
         path('pages/profile/employment/<int:employment_id>', edit_employment, name='edit_employment'),
           path('pages/profile/personal_info/<int:profile_id>', edit_user, name='edit_user'),
         path('pages/profile/address/<int:address_info_id>', edit_address_info, name='edit_address_info'),
+        path('pages/profile/academic/<int:academic_info_id>', edit_academic_information, name='edit_academic_information'),
+        #  path('pages/profile/academic-more', edit_academic_information, name='edit_academic_information'),
 
     path(
         "pages/account_settings/account/",

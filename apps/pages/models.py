@@ -9,18 +9,21 @@ class Project_Application(models.Model):
 
 
 class License_data(models.Model):
+    user_id = models.IntegerField(default=0)
     license_type = models.CharField(max_length=100)
     license_number = models.CharField(max_length=100)
     issue_date = models.DateField()
     valid_upto = models.DateField()
 
 class Employment_Information(models.Model):
+    user_id = models.IntegerField(default=0)
     organization_name= models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
     start_date = models.DateField()
     end_date = models.DateField()
 
 class Address_Info(models.Model):
+    user_id = models.IntegerField(default=0)
     domicile_district = models.CharField(max_length=100)
     domicile_taluka = models.CharField(max_length=100)
     union_council = models.CharField(max_length=100)
@@ -37,6 +40,7 @@ class Address_Info(models.Model):
     permanent_address = models.TextField()
 
 class Profile(models.Model):
+    user_id = models.IntegerField(default=0)
     full_name = models.CharField(max_length=100)
     cnic = models.CharField(max_length=15)  # Assuming CNIC format XXXXX-XXXXXXX-X
     mobile_number = models.CharField(max_length=12)  # Assuming mobile number format 03XX-XXXXXXX
@@ -64,6 +68,7 @@ class Profile(models.Model):
     postal_address = models.TextField()
 
 class Academic_Information(models.Model):
+    user_id = models.IntegerField(default=0)
     degree_title = models.CharField(max_length=100)
     degree = models.CharField(max_length=50)
     duration = models.CharField(max_length=20)

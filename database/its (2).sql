@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2024 at 12:10 AM
+-- Generation Time: Apr 29, 2024 at 01:15 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -180,7 +180,7 @@ CREATE TABLE `auth_user` (
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
 (1, 'pbkdf2_sha256$720000$mKjGDwPesnAKQAli5LjcM9$8cNbt2cP7dKe1sL5ul+aPFuqTSIKFbk1wV8xqGT1TP8=', '2024-04-26 10:51:57.110454', 1, 'zain', '', '', 'zain@gmail.com', 1, 1, '2024-04-19 10:05:55.461566'),
 (2, 'pbkdf2_sha256$720000$9ZnTQvyOLFHgt2Zsos2mUu$e3Zuj69+2aQfu2SCM0ClRXXu9BmUOTCC1V53+nEqLog=', '2024-04-26 09:35:38.189305', 0, '1234', '', '', 'zain@gmailcom', 0, 1, '2024-04-22 07:35:36.074146'),
-(3, 'pbkdf2_sha256$720000$VeZfwLJELhIHAkAEhNOtvy$zEM38pnRbvhU6ZtSJHgHqEVGqNGMYXs8zqX0RcW7VQs=', '2024-04-26 11:53:21.026089', 0, '4321', '', '', 'ali@gmail.com', 0, 1, '2024-04-22 12:06:14.520971'),
+(3, 'pbkdf2_sha256$720000$VeZfwLJELhIHAkAEhNOtvy$zEM38pnRbvhU6ZtSJHgHqEVGqNGMYXs8zqX0RcW7VQs=', '2024-04-29 10:52:09.435595', 0, '4321', '', '', 'ali@gmail.com', 0, 1, '2024-04-22 12:06:14.520971'),
 (4, 'pbkdf2_sha256$720000$JKT7eJCzkbx8UBcpfM1Tha$uYWs2s+hpuEpyOHMOwu1vmA/TQwpMEKZEwTbstoQA7g=', NULL, 1, 'ali', '', '', 'ali@gmail.com', 1, 1, '2024-04-23 05:39:28.426457'),
 (5, 'pbkdf2_sha256$720000$QdqlmspIG4W5ZTb4QtVXgy$qSwHvA7FkAvLVV0DkB/mIJVoSE62iV781YRZbN4VEhc=', '2024-04-23 05:43:29.206477', 0, 'raza', '', '', 'raza@gmail.com', 0, 1, '2024-04-23 05:42:39.315435'),
 (6, 'pbkdf2_sha256$720000$q3eaWx8IhvNEmzTqizHpYi$35p1R39nDqzI3+xOg0P8Bal3Ca/oukSugglCiszwJu0=', '2024-04-26 06:16:38.162517', 0, 'toheed', '', '', 'toheed@gmail.com', 0, 1, '2024-04-26 06:15:03.032011');
@@ -315,7 +315,8 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (27, 'pages', '0005_employment_information', '2024-04-19 11:42:25.371782'),
 (28, 'pages', '0006_address_info', '2024-04-20 02:49:16.178901'),
 (29, 'pages', '0007_academic_information', '2024-04-20 03:12:21.391981'),
-(30, 'pages', '0008_project_application', '2024-04-24 07:34:23.152400');
+(30, 'pages', '0008_project_application', '2024-04-24 07:34:23.152400'),
+(31, 'pages', '0009_academic_information_user_id_address_info_user_id_and_more', '2024-04-29 06:25:07.010819');
 
 -- --------------------------------------------------------
 
@@ -336,12 +337,14 @@ CREATE TABLE `django_session` (
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('2gxr6xwz5j8dupsv2ovv0krbvib95pxr', '.eJxVjsEOwiAQRP-FsyGWwgIevfcbyLILUjU0Ke3J-O-2SWP0Om_mZV4i4LqUsLY0h5HFRShx-s0i0iPVHfAd622SNNVlHqPcK_KgTQ4Tp-f16P4JCrayrW0mlcmyI5M1e2DyPZPmmCBSxxCdAeuM6zUm9N5lsMTmDMxKd6DcJv1-VO8P1Fw8VA:1rzA9s:rS1BSRsS_d-I8wWXIAJKCrjezNvsXGnOkQ5IBXqmVdY', '2024-04-23 08:01:40.577624'),
 ('47hecxdihfietj3y5pq5uusq3djyvm4s', '.eJxVjEEOwiAQRe_C2hCghqEu3XsGMsMMUjWQlHbVeHdt0oVu_3vvbyriupS4dpnjxOqirDr9boTpKXUH_MB6bzq1uswT6V3RB-361lhe18P9OyjYy7cmtGEUMJ6YMRnjYBxIDGAAcFmsdzmfmQ0lAmcDDyGQA59NQC_EqN4f9NY4jA:1rymH8:IJfVRj36sX0n-KTsZwdb-FbYJ3_8yZXgpNrxMORQP94', '2024-04-22 06:31:34.051136'),
+('5symq4w2oj14uakgmgw8mv6rmrdie935', '.eJxVjssKwjAURP8lawl5mYdL9_2GcB-pqUoLTbsS_90Wiuh2zsxhXiLDutS8tjLngcVFWHH6zRDoUcYd8B3G2yRpGpd5QLlX5EGb7CYuz-vR_RNUaHVb9wzkHSNEZSEZdD15JFeKJm9cAjaRziayQjbBB42c2GkMqL2zCv0m_X607w_RgDxJ:1s1OcD:FsT7UFPEG2-vZZqPT7mraRwnmICmLP3MHEaychdZ8G8', '2024-04-29 11:52:09.587588'),
 ('67hq85klmz65cxfi9kok75egeujyc5xw', '.eJxVjEEOwiAQRe_C2hCghqEu3XsGMsMMUjWQlHbVeHdt0oVu_3vvbyriupS4dpnjxOqirDr9boTpKXUH_MB6bzq1uswT6V3RB-361lhe18P9OyjYy7cmtGEUMJ6YMRnjYBxIDGAAcFmsdzmfmQ0lAmcDDyGQA59NQC_EqN4f9NY4jA:1ry0UV:flPCrJmFg2rdzr-zNs67r1seokC6GOMGbbtSBSdYweo', '2024-04-20 03:30:11.747731'),
 ('85xz7fspq6n3eemv17uzf32szefhhy7n', '.eJxVjssKwjAURP8lawl5mYdL9_2GcB-pqUoLTbsS_90Wiuh2zsxhXiLDutS8tjLngcVFWHH6zRDoUcYd8B3G2yRpGpd5QLlX5EGb7CYuz-vR_RNUaHVb9wzkHSNEZSEZdD15JFeKJm9cAjaRziayQjbBB42c2GkMqL2zCv0m_X607w_RgDxJ:1rzxe8:crPEw2eagSchp7xBWLhLqRPcBfTu-lWMkmP7lUjLNRA', '2024-04-25 12:52:12.005759'),
 ('91s1ag0nvbdp7nn8gpxa5zz2kf26rna1', '.eJxVjEEOwiAQRe_C2hCghqEu3XsGMsMMUjWQlHbVeHdt0oVu_3vvbyriupS4dpnjxOqirDr9boTpKXUH_MB6bzq1uswT6V3RB-361lhe18P9OyjYy7cmtGEUMJ6YMRnjYBxIDGAAcFmsdzmfmQ0lAmcDDyGQA59NQC_EqN4f9NY4jA:1rxnUv:AL4V_SVM06XKlCXdfqWMRwrsSOdfo9WOilNzDIyGorM', '2024-04-19 13:37:45.465211'),
 ('aud0gyf6crwiuvuthwn52kh96vswajox', '.eJxVjssKwjAURP8lawl5mYdL9_2GcB-pqUoLTbsS_90Wiuh2zsxhXiLDutS8tjLngcVFWHH6zRDoUcYd8B3G2yRpGpd5QLlX5EGb7CYuz-vR_RNUaHVb9wzkHSNEZSEZdD15JFeKJm9cAjaRziayQjbBB42c2GkMqL2zCv0m_X607w_RgDxJ:1rzFiL:f7rS5A_z_jC17ITsSPtOxyIURZhs-4T8Dh4vrMCusio', '2024-04-23 13:57:37.282184'),
 ('ax3yrqik3o7l4qjzpeoor3t2rqk9ld7r', '.eJxVjEEOwiAQRe_C2hCghqEu3XsGMsMMUjWQlHbVeHdt0oVu_3vvbyriupS4dpnjxOqirDr9boTpKXUH_MB6bzq1uswT6V3RB-361lhe18P9OyjYy7cmtGEUMJ6YMRnjYBxIDGAAcFmsdzmfmQ0lAmcDDyGQA59NQC_EqN4f9NY4jA:1ryoia:qNfWGvaJqec-OWT1zUekBOMkAbL6B-TtGm9xgrSZPpw', '2024-04-22 09:08:04.659981'),
 ('d49zlumsnwkynuus9cql0cdli0z8gk1r', '.eJxVjssKwjAURP8lawl5mYdL9_2GcB-pqUoLTbsS_90Wiuh2zsxhXiLDutS8tjLngcVFWHH6zRDoUcYd8B3G2yRpGpd5QLlX5EGb7CYuz-vR_RNUaHVb9wzkHSNEZSEZdD15JFeKJm9cAjaRziayQjbBB42c2GkMqL2zCv0m_X607w_RgDxJ:1s0K8n:H4fD2JTDWuNrmrEGMjwZmZbZCEke0nObhVQTZ61HYbU', '2024-04-26 12:53:21.094949'),
+('exczkdrbuwvg4eytpbeziljbqxohn6lc', '.eJxVjssKwjAURP8lawl5mYdL9_2GcB-pqUoLTbsS_90Wiuh2zsxhXiLDutS8tjLngcVFWHH6zRDoUcYd8B3G2yRpGpd5QLlX5EGb7CYuz-vR_RNUaHVb9wzkHSNEZSEZdD15JFeKJm9cAjaRziayQjbBB42c2GkMqL2zCv0m_X607w_RgDxJ:1s1LfT:3Uj3Yk3jiQ0tiqerKEXgPmcpPqqVY57UKHKkiWk5yZ0', '2024-04-29 08:43:19.122824'),
 ('fke0p6ung6pdacvm4so40pfhjb6p074t', '.eJxVjEEOwiAQRe_C2hCghqEu3XsGMsMMUjWQlHbVeHdt0oVu_3vvbyriupS4dpnjxOqirDr9boTpKXUH_MB6bzq1uswT6V3RB-361lhe18P9OyjYy7cmtGEUMJ6YMRnjYBxIDGAAcFmsdzmfmQ0lAmcDDyGQA59NQC_EqN4f9NY4jA:1rxm7C:NCiNMbfIfcEcBU2laO-WbGSCwOrnMxnEdu6WIwCzFuA', '2024-04-19 12:09:10.940784'),
 ('hvpy4zxtz3htn1b72q5ezdabaujkkdja', '.eJxVjssKwjAURP8lawl5mYdL9_2GcB-pqUoLTbsS_90Wiuh2zsxhXiLDutS8tjLngcVFWHH6zRDoUcYd8B3G2yRpGpd5QLlX5EGb7CYuz-vR_RNUaHVb9wzkHSNEZSEZdD15JFeKJm9cAjaRziayQjbBB42c2GkMqL2zCv0m_X607w_RgDxJ:1rzXq1:fKPraaEYyzu6mqYQrI1cmODoOG8DTPWMmjO-Y7yHiVA', '2024-04-24 09:18:45.330846'),
 ('nh24tm2ycs0cr0jaeqd8rirchyald2hy', '.eJxVjssKwjAURP8lawl5mYdL9_2GcB-pqUoLTbsS_90Wiuh2zsxhXiLDutS8tjLngcVFWHH6zRDoUcYd8B3G2yRpGpd5QLlX5EGb7CYuz-vR_RNUaHVb9wzkHSNEZSEZdD15JFeKJm9cAjaRziayQjbBB42c2GkMqL2zCv0m_X607w_RgDxJ:1rzbIL:4vGOGWz1Q0STXhHgPefYrpTv60Zo33d9WpHLSRFnUZk', '2024-04-24 13:00:13.442095'),
@@ -352,7 +355,10 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('qgvzdfb9o1msnn7o04lxud7u0bp99o97', '.eJxVjsEOwiAQRP-FsyGWwgIevfcbyLILUjU0Ke3J-O-2SWP0Om_mZV4i4LqUsLY0h5HFRShx-s0i0iPVHfAd622SNNVlHqPcK_KgTQ4Tp-f16P4JCrayrW0mlcmyI5M1e2DyPZPmmCBSxxCdAeuM6zUm9N5lsMTmDMxKd6DcJv1-VO8P1Fw8VA:1s0GYh:mtd8sGezxB0QErmQHrtr0AX1I5WZvYQIRSbTRveMPtM', '2024-04-26 09:03:51.266858'),
 ('rcxhfsau89xibapmon89cf3j0i266h5h', '.eJxVjs0OgjAQhN-lZ9OA7WLryXj3Gch2dwso0ISfi8Z3tyTEhOPMfDOZj5IBu15d1YRvvDWb0JQGdVI1rktbr7NMdccZgKMXkF4ybgE_cWxSbo3L1AW9IXpPZ_1ILP19Zw8DLc5tboeLSHRSCYFQNGXFFIy1jsC7iB5MwZWNsWSxYOlss0IxyA7BF-JdHv1_hO8PRt5FBw:1rz8wD:wzcKA2ughjDg6ct3hkJgDihvKcbO-BnTlc5ytyPswi8', '2024-04-23 06:43:29.342482'),
 ('sn3eqwia2cgfmpd319xtg0v4yzj8442g', '.eJxVjskKwjAYhN8lZwnNYtp4Eu8-Q_iXtIl2gS4n8d1NoQi9DfPNDPMRcYDci5uAPt-7XUuaBnERAbY1hW2Jc8hcuDl7CPSO4w74BWM3lda4zhnlHpEHXeRz4tg_juxpIMGSSrtlIGcZoakMeI22JYdkY1TktPXAuqGrbrhC1rWrFbJnq7BG5ayp0JXR_0fz_QHbvkQs:1rysRZ:KLID5XhOyqK_CQaH4nrzmxj3ZYtSVQdiS3hb4C0_I8Q', '2024-04-22 13:06:45.550377'),
-('ydz76ifozc6lwyt0jhoh819l8vpz6akh', '.eJxVjEEOwiAQRe_C2hCghqEu3XsGMsMMUjWQlHbVeHdt0oVu_3vvbyriupS4dpnjxOqirDr9boTpKXUH_MB6bzq1uswT6V3RB-361lhe18P9OyjYy7cmtGEUMJ6YMRnjYBxIDGAAcFmsdzmfmQ0lAmcDDyGQA59NQC_EqN4f9NY4jA:1rxl8G:WhH6AaymZCcGmrKJSeymMyVQBXblcKUcgjJAN021MRU', '2024-04-19 11:06:12.082642');
+('ukhr3ub9leezb526j8ic3yt4ai9wypj5', '.eJxVjssKwjAURP8lawl5mYdL9_2GcB-pqUoLTbsS_90Wiuh2zsxhXiLDutS8tjLngcVFWHH6zRDoUcYd8B3G2yRpGpd5QLlX5EGb7CYuz-vR_RNUaHVb9wzkHSNEZSEZdD15JFeKJm9cAjaRziayQjbBB42c2GkMqL2zCv0m_X607w_RgDxJ:1s1NbY:zFPnZ0knMBAPMjtMxVTVQGsU1FPP6RFp_6Cb2tNC6PM', '2024-04-29 10:47:24.359085'),
+('v9pzsrc1i40usola9bgioribt5vquv89', '.eJxVjssKwjAURP8lawl5mYdL9_2GcB-pqUoLTbsS_90Wiuh2zsxhXiLDutS8tjLngcVFWHH6zRDoUcYd8B3G2yRpGpd5QLlX5EGb7CYuz-vR_RNUaHVb9wzkHSNEZSEZdD15JFeKJm9cAjaRziayQjbBB42c2GkMqL2zCv0m_X607w_RgDxJ:1s1Kf9:vdgsIisGLN8TCJd90BpKArtojYSIjS42h9x7CmHfI30', '2024-04-29 07:38:55.894697'),
+('ydz76ifozc6lwyt0jhoh819l8vpz6akh', '.eJxVjEEOwiAQRe_C2hCghqEu3XsGMsMMUjWQlHbVeHdt0oVu_3vvbyriupS4dpnjxOqirDr9boTpKXUH_MB6bzq1uswT6V3RB-361lhe18P9OyjYy7cmtGEUMJ6YMRnjYBxIDGAAcFmsdzmfmQ0lAmcDDyGQA59NQC_EqN4f9NY4jA:1rxl8G:WhH6AaymZCcGmrKJSeymMyVQBXblcKUcgjJAN021MRU', '2024-04-19 11:06:12.082642'),
+('zumzk9w5z2spds9ou2808g3u0i9eo98q', '.eJxVjssKwjAURP8lawl5mYdL9_2GcB-pqUoLTbsS_90Wiuh2zsxhXiLDutS8tjLngcVFWHH6zRDoUcYd8B3G2yRpGpd5QLlX5EGb7CYuz-vR_RNUaHVb9wzkHSNEZSEZdD15JFeKJm9cAjaRziayQjbBB42c2GkMqL2zCv0m_X607w_RgDxJ:1s1Me1:Cw6xcmbzSadJz8ibg8YkzIWwk0sfOsp9hMvEUFMlmVA', '2024-04-29 09:45:53.633040');
 
 -- --------------------------------------------------------
 
@@ -371,17 +377,19 @@ CREATE TABLE `pages_academic_information` (
   `total_marks` decimal(5,2) NOT NULL,
   `percentage` decimal(5,2) NOT NULL,
   `board_institute` varchar(100) NOT NULL,
-  `subjects` longtext NOT NULL
+  `subjects` longtext NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pages_academic_information`
 --
 
-INSERT INTO `pages_academic_information` (`id`, `degree_title`, `degree`, `duration`, `passing_year`, `marks_type`, `obtained_marks`, `total_marks`, `percentage`, `board_institute`, `subjects`) VALUES
-(1, 'Bachelor of Science', 'B.Sc.', '4 years', 2022, 'CGPA', 3.80, 4.00, 0.95, 'dsxcc', 'qcds x'),
-(2, 'Bachelor of Science', 'B.Sc.', '4 years', 2022, 'CGPA', 3.80, 4.00, 0.95, 'tgerd', 'refdcs'),
-(3, 'Bachelor of Science', 'B.Sc.', '4 years', 2022, 'CGPA', 3.80, 4.00, 0.95, 'fghj', 'fyuj');
+INSERT INTO `pages_academic_information` (`id`, `degree_title`, `degree`, `duration`, `passing_year`, `marks_type`, `obtained_marks`, `total_marks`, `percentage`, `board_institute`, `subjects`, `user_id`) VALUES
+(1, 'Bachelor of Science', 'B.Sc.', '4 years', 2022, 'CGPA', 3.80, 4.00, 0.95, 'dsxcc', 'qcds x', 0),
+(2, 'Bachelor of Science', 'B.Sc.', '4 years', 2022, 'CGPA', 3.80, 4.00, 0.95, 'tgerd', 'refdcs', 0),
+(3, 'Bachelor of Science', 'B.Sc.', '4 years', 2022, 'CGPA', 3.80, 4.00, 0.95, 'fghj', 'fyuj', 0),
+(9, 'z', 'B.Sc.', '4 years', 2022, 'CGPA', 3.80, 4.00, 0.95, 'z', 'z', 3);
 
 -- --------------------------------------------------------
 
@@ -402,21 +410,16 @@ CREATE TABLE `pages_address_info` (
   `domicile_original_duplicate` varchar(10) NOT NULL,
   `current_address` longtext NOT NULL,
   `postal_address` longtext NOT NULL,
-  `permanent_address` longtext NOT NULL
+  `permanent_address` longtext NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pages_address_info`
 --
 
-INSERT INTO `pages_address_info` (`id`, `domicile_district`, `domicile_taluka`, `union_council`, `domicile_no`, `prc_d_no`, `domicile_issuance_date`, `prc_d_issuance_date`, `domicile_urban_rural`, `domicile_original_duplicate`, `current_address`, `postal_address`, `permanent_address`) VALUES
-(1, 'z', 'z', 'z', 'z', 'z', '2024-04-15', '2024-04-22', 'urban', 'original', 'hjmk', 'fgh', 'dfghj'),
-(2, 'z', 'z', 'z', 'z', 'xs', '2024-04-14', '2024-04-22', 'urban', 'original', 'fgjhk', 'vgjhnm', 'xcgfg'),
-(3, 'z', 'z', 'z', 'z', 'z', '2024-04-11', '2024-04-24', 'urban', 'original', 'jyhtrev', 'trfe', '6'),
-(4, 'z', 'z', 'z', 'z', 'z', '2024-04-11', '2024-04-24', 'urban', 'original', 'jyhtrev', 'trfe', '6'),
-(5, 'z', 'z', 'z', 'z', 'z', '2024-04-15', '2024-04-16', 'urban', 'original', 'dfghj', 'fghj', 'fghj'),
-(6, 'z', 'z', 'z', 'z', 'xs', '2024-04-14', '2024-04-22', 'urban', 'original', 'fgjhk', 'vgjhnm', 'xcgfg'),
-(7, 'zaaaaaaaaaaaaaaaaaaaaaaa', 'z', 'z', 'z', 'xs', '2024-04-14', '2024-04-22', 'urban', 'original', 'fgjhk', 'vgjhnm', 'xcgfg');
+INSERT INTO `pages_address_info` (`id`, `domicile_district`, `domicile_taluka`, `union_council`, `domicile_no`, `prc_d_no`, `domicile_issuance_date`, `prc_d_issuance_date`, `domicile_urban_rural`, `domicile_original_duplicate`, `current_address`, `postal_address`, `permanent_address`, `user_id`) VALUES
+(8, 'z', 'z', 'z', 'z', 'z', '2024-05-09', '2024-04-25', 'urban', 'original', 'z', 'z', 'z', 3);
 
 -- --------------------------------------------------------
 
@@ -429,29 +432,16 @@ CREATE TABLE `pages_employment_information` (
   `organization_name` varchar(100) NOT NULL,
   `designation` varchar(100) NOT NULL,
   `start_date` date NOT NULL,
-  `end_date` date NOT NULL
+  `end_date` date NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pages_employment_information`
 --
 
-INSERT INTO `pages_employment_information` (`id`, `organization_name`, `designation`, `start_date`, `end_date`) VALUES
-(1, 'zain', 'zain', '2019-01-01', '2021-12-31'),
-(2, 'zain', 'zain', '2019-01-01', '2021-12-31'),
-(3, 'zain', 'zain', '2019-01-01', '2021-12-31'),
-(4, 'zain', 'zain', '2019-01-01', '2021-12-31'),
-(5, 'zain', 'zain', '2019-01-01', '2021-12-31'),
-(7, 'zain', 'zain', '2019-01-01', '2021-12-31'),
-(8, 'zain', 'zain', '2019-01-01', '2021-12-31'),
-(9, 'tg4frd3es', 'r43edwqs', '2019-01-01', '2021-12-31'),
-(10, 'zain', 'zain', '2019-01-01', '2021-12-31'),
-(11, 'zain', 'zain', '2019-01-01', '2021-12-31'),
-(12, 'zain', 'zain', '2019-01-01', '2021-12-31'),
-(13, 'zain', 'zain', '2019-01-01', '2021-12-31'),
-(14, 'fghjk', 'fgyhjk', '2019-01-01', '2021-12-31'),
-(15, 'sdf', 'awsed', '2019-01-01', '2021-12-31'),
-(16, 'z', 'z', '2019-01-01', '2021-12-31');
+INSERT INTO `pages_employment_information` (`id`, `organization_name`, `designation`, `start_date`, `end_date`, `user_id`) VALUES
+(17, 'z', 'z', '2019-01-01', '2021-12-31', 3);
 
 -- --------------------------------------------------------
 
@@ -478,22 +468,16 @@ CREATE TABLE `pages_license_data` (
   `license_type` varchar(100) NOT NULL,
   `license_number` varchar(100) NOT NULL,
   `issue_date` date NOT NULL,
-  `valid_upto` date NOT NULL
+  `valid_upto` date NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pages_license_data`
 --
 
-INSERT INTO `pages_license_data` (`id`, `license_type`, `license_number`, `issue_date`, `valid_upto`) VALUES
-(1, 'x', 'x', '2024-04-27', '2024-04-18'),
-(2, 'x', 'x', '2024-04-28', '2024-04-11'),
-(3, 'x', 'x', '2024-04-28', '2024-04-11'),
-(4, 'x', 'x', '2024-04-30', '2024-04-23'),
-(5, 'x', 'x', '2024-04-30', '2024-04-23'),
-(6, 'x', 'x', '2024-05-02', '2024-04-17'),
-(7, 'x', 'x', '2024-05-02', '2024-04-17'),
-(8, 'n', 'n', '2024-04-23', '2024-04-24');
+INSERT INTO `pages_license_data` (`id`, `license_type`, `license_number`, `issue_date`, `valid_upto`, `user_id`) VALUES
+(9, 'x', 'x', '2024-05-07', '2024-05-01', 3);
 
 -- --------------------------------------------------------
 
@@ -516,33 +500,16 @@ CREATE TABLE `pages_profile` (
   `has_disability` varchar(10) NOT NULL,
   `domicile_district` varchar(100) NOT NULL,
   `domicile_province` varchar(100) NOT NULL,
-  `postal_address` longtext NOT NULL
+  `postal_address` longtext NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pages_profile`
 --
 
-INSERT INTO `pages_profile` (`id`, `full_name`, `cnic`, `mobile_number`, `email`, `father_or_husband_name`, `gender`, `marital_status`, `date_of_birth`, `religion`, `is_government_servant`, `has_disability`, `domicile_district`, `domicile_province`, `postal_address`) VALUES
-(1, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-01', 'z', 'True', 'on', 'z', '', 'zain'),
-(2, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-01', 'z', 'True', 'True', 'z', '', 'zain'),
-(3, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-04', 'z', 'on', 'on', 'z', '', 'zain'),
-(4, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-04', 'z', 'on', 'on', 'z', '', 'zain'),
-(5, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-04', 'z', 'on', 'on', 'z', '', 'zain'),
-(6, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-04', 'z', 'on', 'on', 'z', '', 'zain'),
-(7, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-04', 'z', 'on', 'on', 'z', '', 'zain'),
-(8, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-04', 'z', 'on', 'on', 'z', '', 'zain'),
-(9, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-04', 'z', 'on', 'on', 'z', '', 'zain'),
-(10, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-04', 'z', 'on', 'on', 'z', '', 'zain'),
-(11, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-04', 'z', 'on', 'on', 'z', '', 'zain'),
-(12, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-04', 'z', 'on', 'on', 'z', '', 'zain'),
-(13, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-04', 'z', 'on', 'on', 'z', '', 'zain'),
-(14, 'zain', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-20', 'z', 'on', 'on', 'z', '', 'zain'),
-(15, 'zain', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-20', 'z', 'on', 'on', 'z', '', 'zain'),
-(16, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-15', 'z', 'on', 'on', 'z', '', 'zain'),
-(17, 'admin', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-18', 'z', 'on', 'on', 'z', '', 'zain'),
-(18, 'admin', 'z', '123456', 'zain@Gmailcom', '', 'male', 'single', '2024-05-03', 'z', 'on', 'on', 'z', '', 'zain'),
-(19, 'admin', 'z', '123456', 'zain@Gmailcom', '', 'male', 'single', '2024-05-03', 'z', 'on', 'on', 'z', '', 'zain');
+INSERT INTO `pages_profile` (`id`, `full_name`, `cnic`, `mobile_number`, `email`, `father_or_husband_name`, `gender`, `marital_status`, `date_of_birth`, `religion`, `is_government_servant`, `has_disability`, `domicile_district`, `domicile_province`, `postal_address`, `user_id`) VALUES
+(20, 'zainnnnnnnnnnnnnnnnnnnnnnnnnn', 'z', '123456', 'zain@Gmailcom', 'z', 'male', 'single', '2024-04-24', 'z', 'True', 'True', 'z', 'z', 'zain', 3);
 
 -- --------------------------------------------------------
 
@@ -774,25 +741,25 @@ ALTER TABLE `django_content_type`
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `pages_academic_information`
 --
 ALTER TABLE `pages_academic_information`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pages_address_info`
 --
 ALTER TABLE `pages_address_info`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `pages_employment_information`
 --
 ALTER TABLE `pages_employment_information`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `pages_experience`
@@ -804,13 +771,13 @@ ALTER TABLE `pages_experience`
 -- AUTO_INCREMENT for table `pages_license_data`
 --
 ALTER TABLE `pages_license_data`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pages_profile`
 --
 ALTER TABLE `pages_profile`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `pages_project_application`
